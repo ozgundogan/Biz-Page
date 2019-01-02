@@ -192,8 +192,8 @@ a:hover {
 
 .box-shadow-full {
   padding: 3rem 1.25rem;
-  position: relative;
-  background-color: #fff;
+    position: relative;
+    background-color: #fff;
   margin-bottom: 3rem;
   z-index: 2;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
@@ -481,7 +481,7 @@ a:hover {
 }
 
 .navbar-b.navbar-reduce .nav-link {
-  color: #0078ff;
+  color: #e00808;
 }
 
 .navbar-b.navbar-reduce .nav-link:before {
@@ -496,11 +496,11 @@ a:hover {
 .navbar-b.navbar-reduce .active > .nav-link,
 .navbar-b.navbar-reduce .nav-link.show,
 .navbar-b.navbar-reduce .nav-link.active {
-  color: #0078ff;
+  color: #e00808;
 }
 
 .navbar-b.navbar-reduce .navbar-brand {
-  color: #0078ff;
+  color: #e00808;
 }
 
 .navbar-b.navbar-reduce .navbar-toggler span {
