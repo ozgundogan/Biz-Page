@@ -10,7 +10,7 @@ License: https://bootstrapmade.com/license/
 ======================================*/
 
 body {
-  background-color: #f5f5f5;
+  background-color: #040404;
   color: #4e4e4e;
 }
 
@@ -431,7 +431,7 @@ a:hover {
   position: absolute;
   margin-left: 0px;
   width: 0%;
-  bottom: 0;
+  bottom: 17px;
   left: 0;
   height: 2px;
   transition: all 500ms ease;
@@ -443,8 +443,9 @@ a:hover {
 }
 
 .navbar-b.navbar-trans .nav-link:hover:before,
-.navbar-b.navbar-reduce .nav-link:hover:before {
-  width: 35px;
+.navbar-b.navbar-reduce .nav-link.normal:hover:before{
+  width: 95px;
+  padding-right: 80%;
 }
 
 .navbar-b.navbar-trans .show > .nav-link:before,
@@ -454,14 +455,21 @@ a:hover {
 .navbar-b.navbar-reduce .show > .nav-link:before,
 .navbar-b.navbar-reduce .active > .nav-link:before,
 .navbar-b.navbar-reduce .nav-link.show:before,
-.navbar-b.navbar-reduce .nav-link.active:before {
+.navbar-b.navbar-reduce .nav-link.normal.active:before {
   width: 35px;
 }
 
 .navbar-b.navbar-trans .nav-link:before {
-  background-color: #fff;
+  background-color: #e00808a6;
 }
-
+.navbar-b.navbar-trans .nav-link.blog:hover:before,.navbar-b.navbar-reduce .nav-link.blog:hover:before{
+  width: 52px;
+  padding-right:0px;
+}
+.navbar-b.navbar-trans .nav-link.iletisim:hover:before,.navbar-b.navbar-reduce .nav-link.iletisim:hover:before{
+  width: 74px;
+  padding-right:0px;
+}
 .navbar-b.navbar-trans .nav-link:hover {
   color: #fff;
 }
@@ -469,7 +477,7 @@ a:hover {
 .navbar-b.navbar-trans .show > .nav-link,
 .navbar-b.navbar-trans .active > .nav-link,
 .navbar-b.navbar-trans .nav-link.show,
-.navbar-b.navbar-trans .nav-link.active {
+.navbar-b.navbar-trans .nav-link.normal.active {
   color: #fff;
 }
 
@@ -481,15 +489,15 @@ a:hover {
 }
 
 .navbar-b.navbar-reduce .nav-link {
-  color: #e00808;
+  color: #000;
 }
 
 .navbar-b.navbar-reduce .nav-link:before {
-  background-color: #0078ff;
+  background-color: #e00808;
 }
 
 .navbar-b.navbar-reduce .nav-link:hover {
-  color: #0078ff;
+  color: #0c0b0b;
 }
 
 .navbar-b.navbar-reduce .show > .nav-link,
@@ -500,7 +508,7 @@ a:hover {
 }
 
 .navbar-b.navbar-reduce .navbar-brand {
-  color: #e00808;
+  color: #000;
 }
 
 .navbar-b.navbar-reduce .navbar-toggler span {
@@ -601,7 +609,7 @@ a:hover {
 ======================================*/
 
 .intro {
-  height: 100vh;
+  height: 68vh;
   position: relative;
   color: #fff;
 }
@@ -611,8 +619,8 @@ a:hover {
   position: absolute;
 }
 
-.intro .overlay-itro {
-  background-color: rgba(0, 0, 0, 0.6);
+.intro .overlay-itro, .overlay-itro {
+  background-color: #82272785;
   position: absolute;
   top: 0;
   left: 0px;
@@ -1215,7 +1223,7 @@ footer .credits a {
 
   .navbar-b.navbar-trans .nav-link:before,
   .navbar-b.navbar-reduce .nav-link:before {
-    margin-left: 18px;
+    margin-left: 13px;
   }
 
   .intro .intro-title {
