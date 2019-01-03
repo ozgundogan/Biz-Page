@@ -3,3 +3,16 @@
   width: 100%;
   margin-bottom: 10px;
 }
+.carousel-item{
+  position: relative;
+  display: none;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top:120px;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  text-align: center;
+}
