@@ -10,7 +10,7 @@ License: https://bootstrapmade.com/license/
 ======================================*/
 
 body {
-  background-color: #040404;
+  background-color: #fafafb;
   color: #4e4e4e;
 }
 
@@ -60,7 +60,7 @@ a:hover {
 
 .box-shadow-a,
 .button:hover {
-  box-shadow: 0 0 0 4px #cde1f8;
+  box-shadow: 0px 0px 3px 4px #b7c6ca;
 }
 
 .display-5 {
@@ -90,7 +90,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color: #0078ff;
+  background-color: #82272785;
 }
 
 .overlay-mf {
@@ -126,11 +126,11 @@ a:hover {
 }
 
 .sect-pt4 {
-  padding-top: 4rem;
+  padding-top: 6rem;
 }
 
 .sect-mt4 {
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 /*--/ Title s /--*/
@@ -179,7 +179,7 @@ a:hover {
   content: '';
   position: absolute;
   height: 3px;
-  background-color: #0078ff;
+  background-color: #e00808a6;
   width: 100px;
   bottom: -12px;
 }
@@ -216,14 +216,14 @@ a:hover {
   border-radius: 50%;
   line-height: 1.4;
   margin: 0 15px 0 0;
-  box-shadow: 0 0 0 3px #0078ff;
+  box-shadow: 0 0 0 3px #bb0b0b;
   transition: all 500ms ease;
 }
 
 .socials .ico-circle:hover {
-  background-color: #0078ff;
+  background-color: #e00808a6;
   color: #fff;
-  box-shadow: 0 0 0 3px #cde1f8;
+  box-shadow: 0 0 0 3px #b7c6ca;
   transition: all 500ms ease;
 }
 
@@ -246,7 +246,7 @@ a:hover {
 }
 
 .list-ico span {
-  color: #0078ff;
+  color: #bb0b0b;
   margin-right: 10px;
 }
 
@@ -260,7 +260,7 @@ a:hover {
   line-height: 1.55;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 0 10px #0078ff;
+  box-shadow: 0 0 0 10px #bb0b0b;
   display: block;
 }
 
@@ -420,7 +420,7 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link,
 .navbar-b.navbar-reduce .nav-link {
-  color: #fff;
+  color: #6c757d;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -516,7 +516,7 @@ a:hover {
 }
 
 .navbar-b .navbar-brand {
-  color: #fff;
+  color: #6c757d;
   font-size: 1.6rem;
   font-weight: 600;
 }
@@ -620,7 +620,7 @@ a:hover {
 }
 
 .intro .overlay-itro, .overlay-itro {
-  background-color: #82272785;
+/*  background-color: #82272785;*/
   position: absolute;
   top: 0;
   left: 0px;
@@ -1081,9 +1081,10 @@ footer {
   text-align: center;
   color:#fff;
   padding-bottom: 4rem;
-  background-color:black;
+  background-color:#500505;
   padding-top: 64px;
   margin-top: 10px;
+  opacity:.97;
   margin-bottom: 10px;
 }
 
@@ -1162,13 +1163,13 @@ footer .credits a {
 }
 
 .button:hover {
-  background-color: #0062d3;
+  background-color: #e00808c2;
   color: #fff;
   transition: all 500ms ease;
 }
 
 .button-a {
-  background-color: #0078ff;
+  background-color: #bb0b0b;
   color: #fff;
   border-color: #cde1f8;
 }
