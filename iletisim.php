@@ -16,7 +16,7 @@ include("header.php")?>
                   </h5>
                 </div>
                 <div>
-                    <form action="islem.php" method="post" role="form" class="contactForm">
+                    <form action="contactform/contactform.php" method="POST" role="form" class="contactForm">
                     <div id="sendmessage">Mesajınız gönderildi. Teşekkürler!</div>
                     <div id="errormessage">Mesajınız gönderilemedi!</div>
                     <div class="row">
@@ -45,7 +45,7 @@ include("header.php")?>
                         </div>
                       </div>
                       <div class="col-md-12">
-                        <button name="submit" type="submit" class="button button-a button-big button-rouded">Send Message</button>
+                        <button type="submit" name="gonder" class="button button-a button-big button-rouded" value="send">Send Message</button>
                       </div>
                     </div>
                   </form>
