@@ -8,7 +8,7 @@
   require 'PHPMailer/PHPMailer-master/src/PHPMailer.php';
   require 'PHPMailer/PHPMailer-master/src/SMTP.php';
 
-if($_POST){
+if($_POST["gonder"]){
 
 $name=$_POST["isim"];
 $email=$_POST["mail"];
@@ -37,7 +37,7 @@ $mesaj=$_POST["mesaj"];
   if($mail->send()){
     echo "OK";
   }else{
-    echo $mail->setError("Üzgünüz:( Bir hata oluştu.");
+    echo "Üzgünüz:( Bir hata oluştu.";
   }
   /*bu dosya göndermek istersek $mail->addAttachment(path"");*/
 }

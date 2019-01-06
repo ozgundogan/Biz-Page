@@ -1,4 +1,4 @@
-<?php include("header.php")?>
+<!-- BEGIN: main -->
 <section id="about" class="about-mf sect-pt4 route">
   <div class="container">
     <div class="row">
@@ -76,4 +76,4 @@
     </div>
   </div>
 </section>
-<?php include("footer.php")?>
+<!-- END: main -->

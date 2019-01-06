@@ -1,4 +1,4 @@
-<?php include("header.php")?>
+<!-- BEGIN: main -->
 <!--/ Section Services Star /-->
 <section id="service" class="services-mf route">
   <div class="navbar-base-color"style="height:80px; width:100%; margin-bottom:10px;"></div
@@ -112,4 +112,4 @@
 </section>
 <!--/ Section Services End /-->
 
-<?php include("footer.php")?>
+<!-- END: main -->

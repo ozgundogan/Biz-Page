@@ -48,22 +48,22 @@
     <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link normal js-scroll" href="index.php">Anasayfa</a>
+          <a class="nav-link normal js-scroll" href="#">Anasayfa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link normal js-scroll" href="hakkinda.php">Hakkında</a>
+          <a class="nav-link normal js-scroll" href="test.php?sayfa=hakkinda">Hakkında</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link normal js-scroll" href="hizmetler.php">Hizmetler</a>
+          <a class="nav-link normal js-scroll" href="test.php?sayfa=hizmetler">Hizmetler</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link normal js-scroll" href="calismalar.php">Çalışmalar</a>
+          <a class="nav-link normal js-scroll" href="test.php?sayfa=calismalar">Çalışmalar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link blog js-scroll" href="blog.php">Blog</a>
+          <a class="nav-link blog js-scroll" href="test.php?sayfa=hizmetler">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link iletisim js-scroll" href="iletisim.php">İletİşİm</a>
+          <a class="nav-link iletisim js-scroll" href="test.php?sayfa=iletisim">İletİşİm</a>
         </li>
       </ul>
     </div>
