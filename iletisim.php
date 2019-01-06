@@ -1,5 +1,4 @@
-<?php
-include("header.php")?>
+<!-- BEGIN: main -->
 <!--/ Section Contact-Footer Star /-->
 <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
   <div class="overlay-mf"></div>
@@ -87,4 +86,4 @@ include("header.php")?>
   </div>
 </section>
 <!--/ Section Contact-footer End /-->
-<?php include("footer.php") ?>
+<!-- END: main -->

@@ -1,4 +1,4 @@
-<?php include("header.php")?>
+<!-- BEGIN: main -->
 <!--/ Section Blog Star /-->
 <section id="blog" class="blog-mf sect-pt4 route">
   <div class="container">

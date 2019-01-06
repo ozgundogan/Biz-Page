@@ -1,4 +1,4 @@
-<?php include("header.php")?>
+<!-- BEGIN: main -->
 <!--/ Section Portfolio Star /-->
 <section id="work" class="portfolio-mf sect-pt4 route">
   <div class="container">
@@ -165,4 +165,4 @@
   </div>
 </section>
 <!--/ Section Portfolio End /-->
-<?php include("footer.php")?>
+<!-- END: main -->
