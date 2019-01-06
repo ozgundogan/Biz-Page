@@ -1,3 +1,4 @@
+<!-- BEGIN: main -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +24,12 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
+  <link href="css/custom.css" rel="stylesheet">
   <!-- =======================================================
-    Theme Name: DevFolio
-    Theme URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
+  Theme Name: DevFolio
+  Theme URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+  Author: BootstrapMade.com
+  License: https://bootstrapmade.com/license/
   ======================================================= -->
 </head>
 
@@ -37,35 +38,34 @@
   <!--/ Nav Star /-->
   <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll" href="#page-top">DevFolio</a>
+      <a class="navbar-brand js-scroll" href="#page-top">HURİS</a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
-        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll active" href="#home">Anasayfa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">Hakkında</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#service">Hizmetler</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#work">Çalışmalar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">İletişim</a>
-          </li>
-        </ul>
-      </div>
+      aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link normal js-scroll" href="index.php">Anasayfa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link normal js-scroll" href="hakkinda.php">Hakkında</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link normal js-scroll" href="hizmetler.php">Hizmetler</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link normal js-scroll" href="calismalar.php">Çalışmalar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link blog js-scroll" href="blog.php">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link iletisim js-scroll" href="iletisim.php">İletİşİm</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  <!--/ Nav End /-->
+  </div>
+</nav>
