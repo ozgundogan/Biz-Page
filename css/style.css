@@ -429,7 +429,7 @@ a:hover {
 .navbar-b.navbar-reduce .nav-link:before {
   content: '';
   position: absolute;
-  margin-left: 0px;
+  margin-left: -5px;
   width: 0%;
   bottom: 17px;
   left: 0;
@@ -444,8 +444,8 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link:hover:before,
 .navbar-b.navbar-reduce .nav-link.normal:hover:before{
-  width: 95px;
-  padding-right: 80%;
+      width: 91px;
+
 }
 
 .navbar-b.navbar-trans .show > .nav-link:before,
@@ -468,6 +468,10 @@ a:hover {
 }
 .navbar-b.navbar-trans .nav-link.iletisim:hover:before,.navbar-b.navbar-reduce .nav-link.iletisim:hover:before{
   width: 74px;
+  padding-right:0px;
+}
+.navbar-b.navbar-trans .nav-link.calismalar:hover:before,.navbar-b.navbar-reduce .nav-link.calismalar:hover:before{
+  width: 105px;
   padding-right:0px;
 }
 .navbar-b.navbar-trans .nav-link:hover {
@@ -562,7 +566,7 @@ a:hover {
 
 .navbar-toggler span {
   display: block;
-  background-color: #fff;
+  background-color: #6c757d;
   height: 3px;
   width: 25px;
   margin-top: 4px;

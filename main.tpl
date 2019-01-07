@@ -57,7 +57,7 @@
           <a class="nav-link normal js-scroll" href="test.php?sayfa=hizmetler">Hizmetler</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link normal js-scroll" href="test.php?sayfa=calismalar">Çalışmalar</a>
+          <a class="nav-link calismalar js-scroll" href="test.php?sayfa=calismalar">Çalışmalar</a>
         </li>
         <li class="nav-item">
           <a class="nav-link blog js-scroll" href="test.php?sayfa=hizmetler">Blog</a>
