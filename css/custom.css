@@ -13,10 +13,12 @@
   -webkit-backface-visibility: hidden;
   perspective: 1000px;
   text-align: center;
-/*  transition: -webkit-transform 0.5s ease !important;
+  /*  transition: -webkit-transform 0.5s ease !important;
   transition: transform 0.5s ease !important;
   transition: transform 0.5s ease, -webkit-transform 2s ease !important;*/
 }
-.carousel-item.active {
-
+.img-fluid{
+  width: 100%;
+  margin: 1em;
+  border-radius: calc(.25rem - 1px);
 }

@@ -48,7 +48,7 @@
     <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link normal js-scroll" href="#">Anasayfa</a>
+          <a class="nav-link normal js-scroll" href="test.php">Anasayfa</a>
         </li>
         <li class="nav-item">
           <a class="nav-link normal js-scroll" href="test.php?sayfa=hakkinda">Hakkında</a>
