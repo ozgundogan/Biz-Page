@@ -9,6 +9,7 @@ $app->CreateView("hizmetler","hizmetler.tpl");
 $app->CreateView("calismalar","calismalar.tpl");
 $app->CreateView("blog","blog.tpl");
 $app->CreateView("iletisim","iletisim.tpl");
+$app->CreateView("detail","blog-single.tpl");
 $app->CreateView("page","index.tpl");
 $app->StartPage();
 if(isset($_GET['sayfa'])){
@@ -34,7 +35,10 @@ if(isset($_GET['sayfa'])){
     $app->Views['iletisim']->parse('main');
     $app->Views['main']->assign('content',$app->Views['iletisim']->text('main'));
     break;
-
+    case 'blogdetail':
+    $app->Views['detail']->parse('main');
+    $app->Views['main']->assign('content',$app->Views['detail']->text('main'));
+    break;
     default:
 
     break;

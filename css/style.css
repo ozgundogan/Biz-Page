@@ -29,7 +29,7 @@ a {
 }
 
 a:hover {
-  color: #0078ff;
+  color: #550d0d;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
 }
@@ -160,7 +160,7 @@ a:hover {
 .line-mf {
   width: 40px;
   height: 5px;
-  background-color: #0078ff;
+  background-color: #e00808;
   margin: 0 auto;
 }
 
@@ -326,7 +326,7 @@ a:hover {
 .back-to-top {
   position: fixed;
   display: none;
-  background: #0078ff;
+  background: #550d0d;
   color: #fff;
   width: 44px;
   height: 44px;
@@ -709,7 +709,7 @@ a:hover {
 
 .skill-mf .progress .progress-bar {
   height: .7rem;
-  background-color: #0078ff;
+  background-color: #e00808;
 }
 
 /*======================================
@@ -726,7 +726,7 @@ a:hover {
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
   color: #fff;
-  background-color: #0078ff;
+  background-color: #e00808;
   box-shadow: 0 0 0 10px #cde1f8;
 }
 
@@ -811,17 +811,17 @@ a:hover {
 }
 
 .work-content .w-more .w-ctegory {
-  color: #0078ff;
+  color: #550d0d;
 }
 
 .work-content .w-like {
   font-size: 2.5rem;
-  color: #0078ff;
+  color: #550d0d;
   float: right;
 }
 
 .work-content .w-like a {
-  color: #0078ff;
+  color: #550d0d;
 }
 
 .work-content .w-like .num-like {
@@ -897,7 +897,7 @@ a:hover {
   color: #fff;
   padding: 0 15px 5px;
   overflow: hidden;
-  background-color: #0078ff;
+  background-color: #e00808;
   border-radius: 4px;
 }
 
@@ -951,7 +951,7 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul {
-  border-left: 4px solid #0078ff;
+  border-left: 4px solid #e00808;
   margin-top: 1rem;
 }
 
@@ -961,7 +961,7 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul a {
-  color: #0078ff;
+  color: #e00808;
 }
 
 .blog-wrapper .post-meta ul span {
@@ -969,7 +969,7 @@ a:hover {
 }
 
 .blog-wrapper .blockquote {
-  border-left: 4px solid #0078ff;
+  border-left: 4px solid #e00808;
   padding: 18px;
   font-style: italic;
 }
@@ -1001,7 +1001,7 @@ a:hover {
 }
 
 .box-comments .list-comments a {
-  color: #0078ff;
+  color: #e00808;
 }
 
 .box-comments .list-comments span {
@@ -1018,7 +1018,7 @@ a:hover {
 .widget-sidebar .sidebar-title {
   font-size: 1.6rem;
   font-weight: 600;
-  border-left: 5px solid #0078ff;
+  border-left: 5px solid #e00808;
   padding-left: 15px;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -1046,8 +1046,8 @@ a:hover {
 }
 
 .sidebar-search .btn-search {
-  background-color: #0078ff;
-  border-color: #0078ff;
+  background-color: #e00808;
+  border-color: #e0080870;
   border-radius: 0;
   padding-left: 20px;
   padding-right: 20px;
@@ -1055,7 +1055,7 @@ a:hover {
 
 .widget-tags ul li {
   display: inline-block;
-  background-color: #0078ff;
+  background-color: #e00808;
   padding: .2rem .6rem;
   margin-bottom: .5rem;
   border-radius: 15px;

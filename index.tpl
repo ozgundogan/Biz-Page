@@ -2,7 +2,7 @@
 <!--/ Intro Skew Star /-->
 <!-- Carousel Sldier-->
 <!-- BEGIN: main -->
-<div id="carousel-slider" class="carousel slide" data-ride="carousel" data-interval="6000">
+<div id="carousel-slider" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
   <!-- Indicators -->
   <ul class="carousel-indicators">
     <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
@@ -43,10 +43,11 @@
   <a class="carousel-control-next" href="#carousel-slider" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
+</div>
   <!-- End carousel Slider -->
   <!-- Content in index Start -->
   <section id="blog" class="blog-mf sect-pt4 route">
-    <div class="container">
+    <div class="fluid">
       <div class="row">
         <div class="col-sm-12">
           <div class="title-box text-center">
@@ -99,9 +100,9 @@
               </div>
             </div>
           </div>
-          <div class="offset-md-2 col-md-8">
-            <div class="card card-blog">
-              <div class="card-body"></div>
+          <div class="col-md-12">
+            <div class="card card-blog inter">
+              <div class="card-body bg-image" style="background-image:url(http://www.orucoglunakliyat.com.tr/wp-content/uploads/2016/12/ofis.jpg)"></div>
             </div>
           </div>
           <div class="offset-md-4 col-md-8">
@@ -139,6 +140,11 @@
                   <span class="ion-ios-clock-outline"></span> 10 min
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card card-blog inter">
+              <div class="card-body bg-image" style="background-image:url(http://www.orucoglunakliyat.com.tr/wp-content/uploads/2016/12/ofis.jpg)"></div>
             </div>
           </div>
           <div class="col-md-8">
@@ -183,6 +189,5 @@
     </div>
   </section>
   <!-- Content in index Ends -->
-</div>
 <!-- END: main -->
 <!--/ Intro Skew End /-->
