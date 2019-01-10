@@ -19,6 +19,18 @@
 }
 .img-fluid{
   width: 100%;
-  margin: 1em;
+  margin: 0em;
   border-radius: calc(.25rem - 1px);
+}
+.card.card-blog.inter{
+  margin: -12rem !important;
+  height: 400px;
+  z-index: -2;
+  background-color: #3a292930;
+}
+.card-footer{
+  background-color:#e008087a;
+}
+.card.card-blog{
+  background-color:#ffffffd4;
 }
