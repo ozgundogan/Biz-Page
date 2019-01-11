@@ -13,7 +13,8 @@ $app->CreateView("detail","blog-single.tpl");
 $app->CreateView("page","index.tpl");
 $app->StartPage();
 if(isset($_GET['sayfa'])){
-  $sayfa=$_GET['sayfa'];
+  $sayfa=current(explode('/',$_GET['sayfa']));
+//  echo $sayfa;
   switch ($sayfa) {
     case 'hakkinda':
     $app->Views['hakkinda']->parse('main');
@@ -37,6 +38,7 @@ if(isset($_GET['sayfa'])){
     $app->Views['main']->assign('content',$app->Views['iletisim']->text('main'));
     break;
     case 'blogdetail':
+    echo "jgggd";
     $app->Views['detail']->parse('main');
     $app->Views['main']->assign('content',$app->Views['detail']->text('main'));
     break;

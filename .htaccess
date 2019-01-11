@@ -8,4 +8,4 @@ RewriteRule ^blog$ test.php?sayfa=blog [NC,L]
 RewriteRule ^hizmetler$ test.php?sayfa=hizmetler [NC,L]
 RewriteRule ^calismalar$ test.php?sayfa=calismalar [NC,L]
 
-RewriteRule ^test.php?sayfa=blogdetail/([0-9a-zA-Z-_]+)/([0-9]+)$ test.php?sayfa=blogdetail?sef=$1&blog_id$2 [L,QSA]
+RewriteRule ^test.php?sayfa=blogdetail/([0-9a-zA-Z-_]+)/([0-9]+)$ test.php?sayfa=blogdetail&sef=$1&blog_id=$2 [L,QSA]
