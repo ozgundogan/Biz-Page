@@ -1,4 +1,5 @@
 <!-- BEGIN: main -->
+<base href="http://localhost/php/Dev-Folio/">
 <!DOCTYPE html>
 <html lang="en">
 <head>
