@@ -105,7 +105,7 @@
                     ipsam temporibus maiores
                     quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis.
                   </p>
-                  <a href="3">Reply</a>
+                  <a class="reply" href="#" onclick="replyOpen(this);">Reply</a>
                 </div>
               </li>
               <li>
@@ -121,7 +121,7 @@
                     quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis,
                     veritatis deserunt.
                   </p>
-                  <a href="3">Reply</a>
+                  <a class="reply" onclick="replyOpen(this);">Reply</a>
                 </div>
               </li>
               <li class="comment-children">
@@ -136,7 +136,7 @@
                     ipsam temporibus maiores
                     quae.
                   </p>
-                  <a href="3">Reply</a>
+                  <a class="reply" onclick="replyOpen(this);">Reply</a>
                 </div>
               </li>
               <li>
@@ -151,7 +151,7 @@
                     ipsam temporibus maiores
                     quae natus libero optio.
                   </p>
-                  <a href="3">Reply</a>
+                  <a class="reply" onclick="replyOpen(this);">Reply</a>
                 </div>
               </li>
             </ul>

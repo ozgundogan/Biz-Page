@@ -28,6 +28,7 @@ if(isset($_GET['sayfa'])){
     $app->Views['main']->assign('content',$app->Views['calismalar']->text('main'));
     break;
     case 'blog':
+    $app->Views['blog']->assign('blogdetay',seo("see more details")."/"."3");
     $app->Views['blog']->parse('main');
     $app->Views['main']->assign('content',$app->Views['blog']->text('main'));
     break;
@@ -36,6 +37,7 @@ if(isset($_GET['sayfa'])){
     $app->Views['main']->assign('content',$app->Views['iletisim']->text('main'));
     break;
     case 'blogdetail':
+
     $app->Views['detail']->parse('main');
     $app->Views['main']->assign('content',$app->Views['detail']->text('main'));
     break;

@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class=" col-md-4">
         <div class="card card-blog">
           <div class="card-img">
             <a href="blog-single.html"><img src="img/post-1.jpg" alt="" class="img-fluid"></a>
@@ -27,7 +27,7 @@
                 <h6 class="category">Travel</h6>
               </div>
             </div>
-            <h3 class="card-title"><a href="test.php?sayfa=blogdetail">See more ideas about Travel</a></h3>
+            <h3 class="card-title"><a href="blogdetail/".{blogdetay}>See more ideas about Travel</a></h3>
             <p class="card-description">
               Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
               a pellentesque nec,
@@ -55,10 +55,10 @@
           <div class="card-body">
             <div class="card-category-box">
               <div class="card-category">
-                <h6 class="category">Web Design</h6>
+                <h6 class="category">Web Design {blogdetay} </h6>
               </div>
             </div>
-            <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
+            <h3 class="card-title"><a href="blogdetail/".blogdetay>See more ideas about Travel</a></h3>
             <p class="card-description">
               Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
               a pellentesque nec,
@@ -89,11 +89,12 @@
                 <h6 class="category">Web Design</h6>
               </div>
             </div>
-            <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
+            <h3 class="card-title"><a href="blogdetail/".{blogdetay}>See more ideas about Travel</a></h3>
             <p class="card-description">
               Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
               a pellentesque nec,
               egestas non nisi.
+
             </p>
           </div>
           <div class="card-footer">

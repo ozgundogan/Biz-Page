@@ -114,6 +114,26 @@
 		}
 	});
 
+// $('.reply').on("click",function(){
+// var html="<div class='form-group reply-to'>"
+// +"<textarea class='form-control' rows='5' id='comment'></textarea>"
+// +"<button type='button' class='btn btn-danger'>Gonder</button>"
+// +"</div>";
+//
+// $(this).parent().parent().append(html);
+// $(this).css("display","none");
+// })
  jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 2000;
 })
 (jQuery);
+function replyOpen(elem) {
+	event.preventDefault();
+	$(".reply-to").remove();
+	var html="<div class='form-group reply-to'>"
+	+"<textarea class='form-control' rows='5' id='comment'></textarea>"
+	+"<button type='button' class='btn btn-danger'>Gönder</button>"
+	+"</div>";
+	console.log($(elem).parents());
+	$(elem).parents('li').append(html);
+	$(elem).css("display","none");
+}

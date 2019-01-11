@@ -1,0 +1,12 @@
+DirectoryIndex test.php
+
+RewriteEngine on
+RewriteRule ^$ test.php [NC,L]
+RewriteRule ^iletisim$ test.php?sayfa=iletisim [NC,L]
+RewriteRule ^hakkinda$ test.php?sayfa=hakkinda [NC,L]
+RewriteRule ^blog$ test.php?sayfa=blog [NC,L]
+RewriteRule ^hizmetler$ test.php?sayfa=hizmetler [NC,L]
+RewriteRule ^calismalar$ test.php?sayfa=calismalar [NC,L]
+RewriteRule ^calismalar$ test.php?sayfa=blogdetail [NC,L]
+
+RewriteRule ^blogdetail/([0-9a-zA-Z-_]+)/([0-9]+)$ test.php?sayfa=blogdetail?sef=$1blog_id$2 [L,QSA]

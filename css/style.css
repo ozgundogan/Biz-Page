@@ -90,7 +90,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color: #82272785;
+  /*background-color: #82272785;*/
 }
 
 .overlay-mf {
@@ -364,7 +364,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #f2f2f2;
-  border-top: 6px solid #0078ff;
+  border-top: 6px solid #a20d0d;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -1002,6 +1002,7 @@ a:hover {
 
 .box-comments .list-comments a {
   color: #e00808;
+  cursor:pointer;
 }
 
 .box-comments .list-comments span {
@@ -1035,7 +1036,7 @@ a:hover {
   width: 10px;
   height: 1px;
   left: 0;
-  background-color: #0078ff;
+  background-color: #e00808;
   top: 20px;
 }
 
