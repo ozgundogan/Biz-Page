@@ -115,7 +115,10 @@ a:hover {
 }
 
 .table-cell {
-  display: table-cell;
+  /*  display: table-cell;*/
+  position: relative;
+  text-align: center;
+  top: -400px;
   vertical-align: middle;
 }
 
@@ -444,7 +447,7 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link:hover:before,
 .navbar-b.navbar-reduce .nav-link.normal:hover:before{
-      width: 91px;
+  width: 91px;
 
 }
 
@@ -624,7 +627,7 @@ a:hover {
 }
 
 .intro .overlay-itro, .overlay-itro {
-/*  background-color: #82272785;*/
+  /*  background-color: #82272785;*/
   position: absolute;
   top: 0;
   left: 0px;
