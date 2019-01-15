@@ -46,6 +46,7 @@
 </div>
 <!-- End carousel Slider -->
 <!-- Content in index Start -->
+
 <section id="blog" class="blog-mf sect-pt4 route">
   <div class="fluid">
     <div class="row">
