@@ -10,7 +10,7 @@ License: https://bootstrapmade.com/license/
 ======================================*/
 
 body {
-  background-color: #fafafb;
+  background-color: #f8f9fa;
   color: #4e4e4e;
 }
 
@@ -1091,7 +1091,6 @@ footer {
   padding-bottom: 4rem;
   background-color:#500505;
   padding-top: 64px;
-  margin-top: 10px;
   opacity:.97;
   margin-bottom: 10px;
 }
