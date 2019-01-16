@@ -46,12 +46,15 @@
 </div>
 <!-- End carousel Slider -->
 <!-- what we do -->
+<div class="space-50"></div>
 <div class="section section-do" id="whatwedo">
   <div class="container">
     <div class="col-md-8 offset-md-2 text-center">
       <h2 class="title">Area of expertise</h2>
-      <div class="space-50"></div>
-    </div> <div class="row">
+      <div class="space-50">
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-4">
         <div class="info">
           <div class="icon icon-info icon-round icon-lg">
@@ -108,17 +111,45 @@
         </div>
       </div>
       <!-- End -->
+      <div class="space-50"></div>
       <!-- Section Content -->
-      <div class="section section-content">
+      <div class="section section-content-1">
         <div class="container">
           <div class="row">
-            <div class="col-md-6 text-left col-z-index animated 1 slideInLeft delay-2s">
+            <div class="col-md-8 wow slideInRight">
+              <iframe src="https://www.youtube.com/embed/B7DJF_HjRuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+            <div class="col-md-4 text-left col-z-index  wow slideInLeft">
+              <h1 class="title">Fully coded UI Tools to create web apps</h1>
+              <h4 class="desc">UI Kits and Dashboards built on top of Bootstrap, Vue.js, React and Angular. Look for us -> <a class="bounce" href="https://www.youtube.com/channel/UCJHqlFAHsghx7qS2q_GunRw">Click</a></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inter-title" style="">
+        <div class="col-md-8 offset-md-2 text-center">
+          <h2 class="title">Area of Show of Other Issue</h2>
+          <div class="space-50">
+          </div>
+        </div>
+      </div>
+      <div class="section section-content-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-left col-z-index  wow slideInRight">
               <h1 class="title">Fully coded UI Tools to create web apps</h1>
               <h4 class="desc">UI Kits and Dashboards built on top of Bootstrap, Vue.js, React and Angular.</h4>
             </div>
-            <div class="col-md-6 animated 1 slideInRight delay-2s">
+            <div class="col-md-6  pull-md-6 wow slideInLeft">
               <img src="https://images.pexels.com/photos/924675/pexels-photo-924675.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="illustration">
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="inter-title" style="height:10em">
+        <div class="col-md-8 offset-md-2 text-center">
+          <h2 class="title"></h2>
+          <div class="space-50">
           </div>
         </div>
       </div>
