@@ -91,7 +91,7 @@
               </svg>
             </div>
             <div class="description">
-              <h4 class="info-title">Share Freebies</h4>
+              <h4 class="info-title">Share the Freebies</h4>
               <h5 class="desc"> Everything that we used to create our products can be downloaded for free under MIT License. People have already trusted and used them in thousands of sites. </h5> </div> </div>
             </div> <div class="col-md-4">
               <div class="info">
@@ -102,7 +102,7 @@
                   </g>
                 </svg>
                 <div class="description">
-                  <h4 class="info-title">Power Hackathons</h4>
+                  <h4 class="info-title">Power and Pick Hackathons</h4>
                   <h5 class="desc"> We've sponsored many hackathons around the world with the tools that they need to make awesome web applications. Our UI tools go hand in hand with startups. </h5>
                 </div>
               </div>
@@ -120,7 +120,7 @@
               <iframe src="https://www.youtube.com/embed/B7DJF_HjRuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>
             <div class="col-md-4 text-left col-z-index  wow slideInLeft">
-              <h1 class="title">Fully coded UI Tools to create web apps</h1>
+              <h1 class="title">Fully coded UI Tools to create web apps..</h1>
               <h4 class="desc">UI Kits and Dashboards built on top of Bootstrap, Vue.js, React and Angular. Look for us -> <a class="bounce" href="https://www.youtube.com/channel/UCJHqlFAHsghx7qS2q_GunRw">Click</a></h4>
             </div>
           </div>
