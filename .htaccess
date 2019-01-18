@@ -1,6 +1,10 @@
 DirectoryIndex test.php
 
 RewriteEngine on
+
+ErrorDocument 404 http://localhost/php/Dev-Folio/404
+
+RewriteRule ^404$ 404.php [NC,L]
 RewriteRule ^$ test.php [NC,L]
 RewriteRule ^iletisim$ test.php?sayfa=iletisim [NC,L]
 RewriteRule ^hakkinda$ test.php?sayfa=hakkinda [NC,L]

@@ -29,7 +29,7 @@
   background-color: #3a292930;
 }
 .card-footer{
-  background-color:#e008087a;
+  background-color: #e0080800;
 }
 .card.card-blog{
   background-color:#ffffffd4;
@@ -169,4 +169,10 @@
 .section-content-1 iframe{
   width: 100%;
   height: 60%;
+}
+.btn.plus{
+  border-radius: 120px;
+  width: 60px;
+  height: 60px;
+
 }

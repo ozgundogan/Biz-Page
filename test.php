@@ -4,6 +4,7 @@ require ('includes/functions.php');
 
 $GLOBALS['app'] = new Teknolobi();
 $app->CreateView("main","main.tpl");
+
 $app->CreateView("hakkinda","hakkinda.tpl");
 $app->CreateView("hizmetler","hizmetler.tpl");
 $app->CreateView("calismalar","calismalar.tpl");
@@ -11,6 +12,7 @@ $app->CreateView("blog","blog.tpl");
 $app->CreateView("iletisim","iletisim.tpl");
 $app->CreateView("detail","blog-single.tpl");
 $app->CreateView("page","index.tpl");
+$app->CreateView("404","404.tpl");
 $app->StartPage();
 if(isset($_GET['sayfa'])){
   $sayfa=current(explode('/',$_GET['sayfa']));
@@ -38,7 +40,6 @@ if(isset($_GET['sayfa'])){
     $app->Views['main']->assign('content',$app->Views['iletisim']->text('main'));
     break;
     case 'blogdetail':
-    echo "jgggd";
     $app->Views['detail']->parse('main');
     $app->Views['main']->assign('content',$app->Views['detail']->text('main'));
     break;
