@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <!-- x-editable -->
+  <link rel="stylesheet" href="x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
   <link rel="stylesheet" href="css/custom.css"/>
 </head>
 <body>
@@ -205,7 +208,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="# aria-expanded false" aria-controls="ui-basic">
+            <a class="nav-link" href="?msayfa=anasayfa" aria-expanded="false">
               <span class="menu-title">Anasayfa</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
@@ -294,9 +297,8 @@
 <script src="../lib/jquery/jquery-migrate.min.js"></script>
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
-<script src="js/custom.js"></script>
+<script src="vendors/js/vendor.bundle.addons.js"></script>
 
-</script>
 <!-- endinject -->
 <!-- Plugin js for this page-->
 <!-- End plugin js for this page-->
@@ -307,6 +309,8 @@
 <!-- Custom js for this page-->
 <script src="js/dashboard.js"></script>
 <!-- End custom js for this page-->
+<script src="x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 </body>
 
 </html>
