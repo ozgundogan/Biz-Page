@@ -19,7 +19,7 @@ if(isset($_GET["msayfa"])){
       $app->Views['ana']->assign('sliderid',$slider["slider_id"]);
       $app->Views['ana']->assign('slidersira',$slider["slider_sira"]);
       $app->Views['ana']->assign('sliderresim',$slider["slider_resim"]);
-      
+
       $app->Views['ana']->assign('resimgoster',$slider['slider_id']);
       $app->Views['ana']->parse("main.satirlar");
     }
@@ -55,6 +55,26 @@ if(isset($_GET["msayfa"])){
 else{
   $app->Views["index"]->parse("main");
   $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
+}
+if(isset($_POST["sliderkaydet"])){
+
+  $id=$_POST["sliderid"];
+
+  $uploads_dir="images/uploads";
+  $temp_name=$_FILES['slidergorsel']['temp_name'];
+  $resim_name=$_FILES['slidergorsel']['name'];
+  $sliderresimyol=$uploads_dir."/".$resim_name;
+  print_r($resim_name);
+  exit();
+  @move_uploaded_files($temp_name,"$uploads_dir/$resim_name");
+
+  $slidersira=$_POST["slidersira"];
+  $kaydet=$app->data_run("update slider slider_sira=$slidersira, slider_resim='$sliderresim' where slider_id=$id");
+
+  if(mysqli_affected_rows()){
+    header("location:madmin?msayfa=anasayfa");
+  }
+
 }
 
 $app->Views['main']->parse('main.content');
