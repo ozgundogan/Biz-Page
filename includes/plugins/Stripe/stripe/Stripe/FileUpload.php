@@ -13,7 +13,7 @@ class Stripe_FileUpload extends Stripe_ApiResource
   }
 
   /**
-   * @param string $id The ID of the file uploads to retrieve.
+   * @param string $id The ID of the file upload to retrieve.
    * @param string|null $apiKey
    *
    * @return Stripe_FileUpload
@@ -28,7 +28,7 @@ class Stripe_FileUpload extends Stripe_ApiResource
    * @param array|null $params
    * @param string|null $apiKey
    *
-   * @return Stripe_FileUpload The created file uploads.
+   * @return Stripe_FileUpload The created file upload.
    */
   public static function create($params=null, $apiKey=null)
   {

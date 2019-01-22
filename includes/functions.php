@@ -27,18 +27,18 @@ function getminprice($ptype) {
 				if($val < $minval) $minval = $val;
 			}
 		}
-
+		
 	}
 	return $minval;
 }
-function cleanstring($vp_string){
-    $vp_string = trim($vp_string);
-    $vp_string = html_entity_decode($vp_string);
-    $vp_string = strip_tags($vp_string);
-	$vp_string = str_replace(array("Ç","ç","Ş","ş","Ğ","ğ","ı","Ö","ö","Ü","ü","İ"),array("c","c","s","s","g","g","i","o","o","u","u","i"),$vp_string);
-    $vp_string = preg_replace('~[^ a-z0-9_.]~', ' ', $vp_string);
-    $vp_string = preg_replace('~ ~', '-', $vp_string);
-    $vp_string = preg_replace('~-+~', '-', $vp_string);
+function cleanstring($vp_string){    
+    $vp_string = trim($vp_string);    
+    $vp_string = html_entity_decode($vp_string);    
+    $vp_string = strip_tags($vp_string);	
+	$vp_string = str_replace(array("Ç","ç","Ş","ş","Ğ","ğ","ı","Ö","ö","Ü","ü","İ"),array("c","c","s","s","g","g","i","o","o","u","u","i"),$vp_string);      
+    $vp_string = preg_replace('~[^ a-z0-9_.]~', ' ', $vp_string);    
+    $vp_string = preg_replace('~ ~', '-', $vp_string);    
+    $vp_string = preg_replace('~-+~', '-', $vp_string);        
     return $vp_string;
 }
 
@@ -138,12 +138,12 @@ function getlngvalue($code) {
 		$ref = "lngdataadmin";
 	} else {
 		$ref = "lngdata";
-
+		
 	}
 	foreach($_SESSION[$ref] as $val) {
 		if("lng-".$val['lnvcode'] == $code) {
 			return rlng($val['lnvdata']);
-		}
+		}		
 	}
 }
 function getlngdata($code,$lng) {
@@ -159,14 +159,14 @@ function getmessagevalue($code) {
 	foreach($_SESSION['sistemmmesage'] as $val) {
 		if($val['lnvcode'] == $code) {
 			return rlng($val['lnvdata']);
-		}
+		}		
 	}
 }
 
 function getfotoliaprice($api, $fotoid, $rate, $isapikey = "0") {
 	if($isapikey == "1") {
 		require_once 'plugins/fotolia/fotolia-api.php';
-		$api = new Fotolia_Api($api);
+		$api = new Fotolia_Api($api);	
 	}
 	$sonuc = $api->getMediaData($fotoid,'110');
 	for($i=0;$i<count($sonuc['licenses']);$i++) {
@@ -178,7 +178,7 @@ function getfotoliaprice($api, $fotoid, $rate, $isapikey = "0") {
 }
 
 function sendorder($ordernum) {
-
+	
 }
 
 function getplugindata($plugincode) {
@@ -193,7 +193,7 @@ function getsetvalue($code) {
 	foreach($_SESSION['setdata'] as $val) {
 		if("set-".$val['setcode'] == $code) {
 			return $val['setdata'];
-		}
+		}		
 	}
 }
 function calculatecargo($country="") {
@@ -204,7 +204,7 @@ function rlng($lngval) {
 		$ref = "lngdataadmin";
 	} else {
 		$ref = "lngdata";
-
+		
 	}
 	foreach($_SESSION[$ref] as $val) {
 		$lngval = str_replace('{lng-'.$val['lnvcode']."}",$val['lnvdata'], $lngval);
@@ -269,7 +269,7 @@ function startadminpage() {
 	if(mysql_num_rows($sql)>0) {
 		while($row = mysql_fetch_array($sql)) {
 			$GLOBALS['main']->assign('slomessage',getmessagevalue($row['slomessage']));
-			$GLOBALS['main']->assign('slodate',time_elapsed_string($row['slodate']));
+			$GLOBALS['main']->assign('slodate',time_elapsed_string($row['slodate']));			
 			switch ($row['slotype']) {
 			case "siparis":
 				$GLOBALS['main']->assign('slourl',"order.php?o=".$row['slodata']);
@@ -298,7 +298,7 @@ function startadminpage() {
 			$GLOBALS['main']->parse('main.yessysmessage.sysmessage');
 		}
 		$GLOBALS['main']->parse('main.yessysmessage');
-		$GLOBALS['main']->assign('sysmessagecount',mysql_num_rows($sql));
+		$GLOBALS['main']->assign('sysmessagecount',mysql_num_rows($sql));		
 		$GLOBALS['main']->parse('main.sysmessagecount');
 		$GLOBALS['main']->parse('main.sysmessagecount2');
 	} else {
@@ -311,13 +311,13 @@ function startadminpage() {
 			foreach($user as $key=>$val) {
 				$GLOBALS['main']->assign($key,$val);
 			}
-			$GLOBALS['main']->assign('ticlastdate',time_elapsed_string($row['ticlastdate']));
+			$GLOBALS['main']->assign('ticlastdate',time_elapsed_string($row['ticlastdate']));			
 			$GLOBALS['main']->assign('ticsubject', substr($row['ticsubject'],0,50));
 			$GLOBALS['main']->assign('ticid', $row['ticid']);
 			$GLOBALS['main']->parse('main.yesticmessage.ticmessage');
 		}
 		$GLOBALS['main']->parse('main.yesticmessage');
-		$GLOBALS['main']->assign('ticmessagecount',mysql_num_rows($sql));
+		$GLOBALS['main']->assign('ticmessagecount',mysql_num_rows($sql));		
 		$GLOBALS['main']->parse('main.ticmessagecount');
 		$GLOBALS['main']->parse('main.ticmessagecount2');
 	} else {
@@ -341,12 +341,12 @@ function startpage() {
 }
 
 
-function parselng($block) {
+function parselng($block) {	
 	if(ispanel()) {
 		$ref = "lngdataadmin";
 	} else {
 		$ref = "lngdata";
-
+		
 	}
 	foreach($_SESSION[$ref] as $val) {
 		$block->assign('lng-'.$val['lnvcode'],$val['lnvdata']);
@@ -354,7 +354,7 @@ function parselng($block) {
 	foreach($_SESSION['setdata'] as $val) {
 		$block->assign('set-'.$val['setcode'],$val['setdata']);
 	}
-	return $block;
+	return $block;	
 }
 
 function getproductcode($key) {
@@ -373,7 +373,7 @@ function endadminpage() {
 }
 
 function endpage() {
-
+	
 	$sql = mysql_query("select * from productprices where prpactive='1' and prptype='1'");
 	$sel = 0;
 	$GLOBALS['main']->assign('catname', getlngvalue('lng-perdeler'));
@@ -404,19 +404,19 @@ function endpage() {
 		$GLOBALS['main']->parse('main.productcat.catproduct2');
 	}
 	$GLOBALS['main']->parse('main.productcat');
-
+	
 	if($_SESSION['basket']>0) {
 		$GLOBALS['main']->assign('cartcount', count($_SESSION['basket']));
 		$subtotal = 0;
 		$GLOBALS['main']->parse('main.menucartyes');
-
-
+		
+		
 		foreach($_SESSION['basket'] as $key=>$val) {
 			$GLOBALS['main']->assign('prohash', $key);
 			$GLOBALS['main']->assign('proname',getlngvalue('lng-'.$GLOBALS['productcodes'][$val[2]['rollertype']]));
 			$GLOBALS['main']->assign('prodetails',"<span class=\"color-variations\"><span class=\"f-14\">".getlngvalue('lng-'.$GLOBALS['productcodes'][$val[2]['rollertype']])."</span><br>".$val[2]['genislik']."cm x ".$val[2]['yukseklik']."cm</span>");
 			$GLOBALS['main']->assign('prorollertype',$val[2]['rollertype']);
-			$GLOBALS['main']->assign('proprice', money($val[0]));
+			$GLOBALS['main']->assign('proprice', money($val[0]));	
 			$GLOBALS['main']->assign('proqty', $val[1]);
 			$GLOBALS['main']->assign('prototalprice', money($val[1] * $val[0]));
 			$GLOBALS['main']->parse('main.menucart.miniproduct');
@@ -430,9 +430,9 @@ function endpage() {
 		$GLOBALS['main']->assign('procargo', money(calculatecargo()));
 		$GLOBALS['main']->assign('provergi', $vergi);
 		$GLOBALS['main']->assign('prograndtotal', money($granttotal));
-		$GLOBALS['main']->parse('main.menucart');
+		$GLOBALS['main']->parse('main.menucart');		
 	} else {
-		$GLOBALS['main']->parse('main.nomenucart');
+		$GLOBALS['main']->parse('main.nomenucart');		
 	}
 	if(ispluginactive("mylivechat") == 1) {
 		$data = getplugindata("mylivechat");
@@ -492,15 +492,4 @@ function time_elapsed_string($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . " ".getlngvalue("lng-tarih-once") : " ".getlngvalue("lng-tarih-simdi");
 }
- function seo($text)
-{
-    $find = array('Ç', 'Ş', 'Ğ', 'Ü', 'İ', 'Ö', 'ç', 'ş', 'ğ', 'ü', 'ö', 'ı', '+', '#');
-    $replace = array('c', 's', 'g', 'u', 'i', 'o', 'c', 's', 'g', 'u', 'o', 'i', 'plus', 'sharp');
-    $text = strtolower(str_replace($find, $replace, $text));
-    $text = preg_replace("@[^A-Za-z0-9\-_\.\+]@i", ' ', $text);
-    $text = trim(preg_replace('/\s+/', ' ', $text));
-    $text = str_replace(' ', '-', $text);
-    return $text;
-}
-
 ?>

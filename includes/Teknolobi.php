@@ -8,7 +8,7 @@ class Teknolobi
 {
     //Parameters
     public $sqlType = "mysqli"; // Options: "mysql", "mysqli" , "mssql", "pgsql"
-    public $sqlServer = "127.0.0.1"; // Options: SQL Server name/IP
+    public $sqlServer = "localhost"; // Options: SQL Server name/IP
     public $sqlUsername = "root"; // Sql username
     public $sqlPassword = "";
     public $sqlDatabase = "huris";
@@ -215,6 +215,7 @@ class Teknolobi
                 exit();
         }
     }
+
     function StartCustom($reset = false)
     {
         if (empty($this->Custom) || $reset == true) {
@@ -310,10 +311,12 @@ class Teknolobi
 
     function data_get($query)
     {
+
         $return = "";
         if ($this->sqlUsePDO == true) {
             try {
                 $return = $this->Connection->query($query);
+
             } catch (PDOException $ex) {
                 $this->Exception[] = "<strong>Database Query Error:</strong> " . $ex->getMessage();
             }
