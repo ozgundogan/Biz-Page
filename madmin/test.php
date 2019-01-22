@@ -2,33 +2,24 @@
 require ('../includes/Teknolobi.php');
 require ('../includes/functions.php');
 
-
- $sqlType = "mysqli"; // Options: "mysql", "mysqli" , "mssql", "pgsql"
- $sqlServer = "127.0.0.1"; // Options: SQL Server name/IP
- $sqlUsername = "root"; // Sql username
- $sqlPassword = "";
- $sqlDatabase = "huris";
- $sqlPort="3306";
-
 $GLOBALS['app'] = new Teknolobi();
 $app->CreateView("main","main.tpl");
 $app->CreateView("index","index.tpl");
 $app->CreateView("ana","anasayfa.tpl");
-$app->Views["index"]->parse("main");
-$app->Views['main']->assign("content",$app->Views["index"]->text("main"));
+
 if(isset($_GET["msayfa"])){
   $msayfa=$_GET["msayfa"];
   switch ($msayfa) {
     case 'anasayfa':
-    $baglanti=mysqli_connect($sqlServer, $sqlUsername, $sqlPassword, $sqlDatabase, $sqlPort);
-     $deg=mysqli_query($baglanti,'select * from slider');
+    $app->data_connect();
+    $deg=$app->data_get("select * from slider");
 
-    while($slider=mysqli_fetch_assoc($deg))
+    while($slider=$app->data_fetch_array($deg))
     {
-     $app->Views['ana']->assign('sliderid',$slider["slider_id"]);
-     $app->Views['ana']->assign('slidersira',$slider["slider_sira"]);
-     $app->Views['ana']->assign('sliderresim',$slider["slider_resim"]);
-     $app->Views['ana']->parse("main.sliders");
+      $app->Views['ana']->assign('sliderid',$slider["slider_id"]);
+      $app->Views['ana']->assign('slidersira',$slider["slider_sira"]);
+      $app->Views['ana']->assign('sliderresim',$slider["slider_resim"]);
+      $app->Views['ana']->parse("main.satirlar");
     }
     $app->Views['ana']->parse('main');
     $app->Views['main']->assign('content',$app->Views['ana']->text('main'));
@@ -59,6 +50,11 @@ if(isset($_GET["msayfa"])){
     break;
   }
 }
+else{
+  $app->Views["index"]->parse("main");
+  $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
+}
+
 $app->Views['main']->parse('main.content');
 $app->Views['main']->parse('main');
 $app->Views['main']->out('main');

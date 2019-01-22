@@ -1,4 +1,4 @@
-<!-- BEGIN: main -->
+<!--BEGIN: main -->
 
 <div class="main-panel">
   <form action="test.php" method="post">
@@ -23,7 +23,7 @@
                 </tr>
               </thead>
               <tbody>
-                <!--BEGIN: sliders -->
+                <!-- BEGIN: satirlar-->
                 <tr>
                   <td>{sliderid}</td>
                   <td class="editable" name="slidersira">{slidersira}</td>
@@ -33,7 +33,7 @@
                   </button></td>
                   <td style="width:100px;"><button type="button" class="btn btn-gradient-danger">Sil</button></td>
                 </tr>
-                <!--END: sliders -->
+                <!-- END: satirlar-->
               </tbody>
             </table>
           <button type="button" name="sliderkaydet" class="btn btn-gradient-danger" style="margin:1em"> Kaydet</button>
@@ -42,4 +42,4 @@
       </div>
     </form>
   </div>
-  <!-- END: main -->
+  <!--END: main -->
