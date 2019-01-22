@@ -27,10 +27,10 @@
                 <tr>
                   <td>{sliderid}</td>
                   <td class="editable" name="slidersira">{slidersira}</td>
-                  <td  name="sliderresim">{sliderresim}</td>
+                  <td  name="sliderresim"><div id="ad-{resimgoster}" class="imagePreview"></div></td>
                   <td style="width:190px">
-                    <label for="files" class="btn btn-gradient-danger">Resim Seç</label>
-                    <input id="files" style="visibility:hidden;" type="file"> </td>
+                    <label for="{resimgoster}" class="btn btn-gradient-danger">Resim Seç</label>
+                    <input  onchange="readURL(this,'ad-{resimgoster}');" id="{resimgoster}"  style="visibility:hidden;" type="file"> </td>
                     <td style="width:100px;"><button type="button" class="btn btn-gradient-danger">Sil</button></td>
                   </tr>
                   <!-- END: satirlar-->
