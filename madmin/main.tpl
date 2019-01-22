@@ -19,8 +19,8 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
   <!-- x-editable -->
-  <link rel="stylesheet" href="x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
+<!--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> -->
   <link rel="stylesheet" href="css/custom.css"/>
 </head>
 <body>
@@ -313,8 +313,9 @@
 <!-- Custom js for this page-->
 <script src="js/dashboard.js"></script>
 <!-- End custom js for this page-->
-<script src="x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+<script src="editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
+<script src="editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>-->
 
 </body>
 
