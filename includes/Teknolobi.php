@@ -8,10 +8,10 @@ class Teknolobi
 {
     //Parameters
     public $sqlType = "mysqli"; // Options: "mysql", "mysqli" , "mssql", "pgsql"
-    public $sqlServer = "localhost"; // Options: SQL Server name/IP
-    public $sqlUsername = ""; // Sql username
+    public $sqlServer = "127.0.0.1"; // Options: SQL Server name/IP
+    public $sqlUsername = "root"; // Sql username
     public $sqlPassword = "";
-    public $sqlDatabase = "";
+    public $sqlDatabase = "huris";
     public $sqlPort = "3306"; // 3306 for mysql, 1433 for MSSQL, 5432 for pgsql
     public $sqlCharset = "UTF8"; //utf8 for mysql, UTF-8 for mssql
     public $sqlUsePDO = false;

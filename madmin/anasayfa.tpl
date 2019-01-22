@@ -23,7 +23,7 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- BEGIN: satirlar -->
+                <!--BEGIN: sliders -->
                 <tr>
                   <td>{sliderid}</td>
                   <td class="editable" name="slidersira">{slidersira}</td>
@@ -33,7 +33,7 @@
                   </button></td>
                   <td style="width:100px;"><button type="button" class="btn btn-gradient-danger">Sil</button></td>
                 </tr>
-                <!-- END: satirlar -->
+                <!--END: sliders -->
               </tbody>
             </table>
           <button type="button" name="sliderkaydet" class="btn btn-gradient-danger" style="margin:1em"> Kaydet</button>
