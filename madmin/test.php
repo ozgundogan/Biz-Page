@@ -19,6 +19,7 @@ if(isset($_GET["msayfa"])){
       $app->Views['ana']->assign('sliderid',$slider["slider_id"]);
       $app->Views['ana']->assign('slidersira',$slider["slider_sira"]);
       $app->Views['ana']->assign('sliderresim',$slider["slider_resim"]);
+      
       $app->Views['ana']->assign('resimgoster',$slider['slider_id']);
       $app->Views['ana']->parse("main.satirlar");
     }
