@@ -27,19 +27,19 @@
                 <tr>
                   <td>{sliderid}</td>
                   <td class="editable" name="slidersira">{slidersira}</td>
-                  <td class="editable" name="sliderresim">{sliderresim}</td>
-                  <td style="width:190px"> <button type="button" class="btn btn-gradient-danger btn-icon-text">
-                    Resim Yükle
-                  </button></td>
-                  <td style="width:100px;"><button type="button" class="btn btn-gradient-danger">Sil</button></td>
-                </tr>
-                <!-- END: satirlar-->
-              </tbody>
-            </table>
-          <button type="button" name="sliderkaydet" class="btn btn-gradient-danger" style="margin:1em"> Kaydet</button>
+                  <td  name="sliderresim">{sliderresim}</td>
+                  <td style="width:190px">
+                    <label for="files" class="btn btn-gradient-danger">Resim Seç</label>
+                    <input id="files" style="visibility:hidden;" type="file"> </td>
+                    <td style="width:100px;"><button type="button" class="btn btn-gradient-danger">Sil</button></td>
+                  </tr>
+                  <!-- END: satirlar-->
+                </tbody>
+              </table>
+              <button type="button" name="sliderkaydet" class="btn btn-gradient-danger" style="margin:1em"> Kaydet</button>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
-  </div>
-  <!--END: main -->
+      </form>
+    </div>
+    <!--END: main -->
