@@ -20,13 +20,25 @@ function readURL(input,id) {
   }
 }
 
-function slideEdit(id,inputName,sira){
+function slideEdit(id,gorselName,siraName){
   $("#myForm").ajaxForm({
     type: 'post',
     url :'test.php',
-    data: {"sliderduzenle":"1","id": id,"customname":inputName,"slidersira":sira},
+    data: {"sliderduzenle":"1","id": id,"gorselname":gorselName,"siraname":siraName},
     success:function (result) {
-        console.log(result);
+
+        alert(result);
+
     }
   })
+}
+function slideSil(id){
+  $.ajax({
+    type:"post",
+    url:'test.php',
+    data:{'sid':id},
+    succes:function(cevap){
+      alert(cevap);
+    }
+  });
 }

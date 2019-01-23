@@ -27,18 +27,18 @@
                 <tr>
                   <td>{sliderid}</td>
                   <input value="{sliderid}" type="hidden">
-                  <td><input type="number" name="slidersira" value='{slidersira}' style="width:30px;"></td>
+                  <td><input type="number" name="slidersira{sliderid}" value='{slidersira}' style="width:30px;"></td>
                   <td><div id="ad-{resimgoster}" class="imagePreview"></div></td>
                   <td>
                     <label for="{resimgoster}" class="btn btn-gradient-danger">Resim Seç</label>
                     <input name="slidergorsel{resimgoster}" onchange="readURL(this,'ad-{resimgoster}');" id="{resimgoster}" accept=".png, .jpg, .jpeg" style="visibility:hidden;" type="file">
                   </td>
                   <td>
-                    <button onclick="slideEdit('{sliderid}','slidergorsel{resimgoster}');" class="btn btn-gradient-danger">Düzenle</button>
+                    <button onclick="slideEdit('{sliderid}','slidergorsel{resimgoster}','slidersira{sliderid}');" class="btn btn-gradient-danger">Düzenle</button>
                   </td>
-                  <td style="width:100px;"><a href="test.php?sid={sliderid}">
-                    <button class="btn btn-gradient-danger">Sil</button>
-                  </a>
+                  <td style="width:100px;">
+                    <button onclick="slideSil('{sliderid}');" class="btn btn-gradient-danger" >Sil</button>
+
                 </td>
               </tr>
               <!-- END: satirlar-->

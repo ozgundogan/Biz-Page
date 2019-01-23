@@ -70,7 +70,7 @@ if(isset($_POST["sliderkaydet"])){
 
   $sliderresimyol=$uploads_dir."/".$resim_name;
 
-  @move_uploaded_file($temp_name,"$uploads_dir/$resim_name");
+  @move_uploaded_file($temp_name,'$uploads_dir/$resim_name');
 
   $slidersira=$_POST["slidersira"];
   $kaydet=$app->data_run("update slider slider_sira=$slidersira, slider_resim='$sliderresim' where slider_id=$id");
@@ -82,22 +82,36 @@ if(isset($_POST["sliderkaydet"])){
 if(isset($_POST["sliderduzenle"])){
 
   $id=$_POST["id"];
-  $customname=$_POST["customname"];
+  $gorselname=$_POST["gorselname"];
+  $siraname=$_POST["siraname"];
+  $sliderorder=$_POST["$siraname"];
   $uploads_dir="images/uploads";
 
-  $tmp_name=$_FILES["$customname"]["tmp_name"];
-  $resim_name=$_FILES["$customname"]["name"];
+  $tmp_name=$_FILES["$gorselname"]["tmp_name"];
+  $resim_name=$_FILES["$gorselname"]["name"];
 
   $sliderresimyol=$uploads_dir."/".$resim_name;
 
   @move_uploaded_file($temp_name,"$uploads_dir/$resim_name");
 
-  $kaydet=$app->data_run("update slider set slider_sira='".$slidersira."' , slider_resim='".$sliderresim."' where slider_id='".$id."'");
+  $kaydet=$app->data_run("update slider set slider_sira='".$sliderorder."' , slider_resim='".$sliderresimyol."' where slider_id='".$id."'");
 
   if($kaydet){
-  echo "başarılı";
+    $durum="ok";
+
+  } else{
+    $durum="no";
+  }
+  echo $durum;
+  /*echo $id.",".$customname.",".$uploads_dir.",".$tmp_name.",".$resim_name.",".$sliderresimyol.",".$slidersira."--bitti";*/
 }
-/*echo $id.",".$customname.",".$uploads_dir.",".$tmp_name.",".$resim_name.",".$sliderresimyol.",".$slidersira."--bitti";*/
+if(isset($_POST["sid"])){
+
+$sil=$app->data_run("delete from slider where slider_id=".$_POST['sid']."");
+if($sil){
+  echo "silindi";
+}
+
 }
 $app->EndPage();
 $app->Views['main']->parse('main.content');
