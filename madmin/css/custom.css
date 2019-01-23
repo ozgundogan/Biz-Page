@@ -32,15 +32,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-label.btn.btn-gradient-danger{
-  margin-bottom: -10px;
-  margin-top: 10px;
-  float:right;
-}
 .imagePreview{
-  width: 150%;
+  width: 130%;
   height: 70px;
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+label.btn.btn-gradient-danger{
+ margin-bottom:-10px;
+ margin-top: 10px;
+ float: right;
+}
+table td{
+  vertical-align: middle;
+  font-size: 0.875rem;
+  line-height: 1;
+  width: 150px;
 }

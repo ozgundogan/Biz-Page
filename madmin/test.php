@@ -6,12 +6,15 @@ $GLOBALS['app'] = new Teknolobi();
 $app->CreateView("main","main.tpl");
 $app->CreateView("index","index.tpl");
 $app->CreateView("ana","anasayfa.tpl");
-
+$app->StartPage();
+$app->data_connect();
 if(isset($_GET["msayfa"])){
   $msayfa=$_GET["msayfa"];
+
   switch ($msayfa) {
+
     case 'anasayfa':
-    $app->data_connect();
+
     $deg=$app->data_get("select * from slider");
 
     while($slider=$app->data_fetch_array($deg))
@@ -48,7 +51,8 @@ if(isset($_GET["msayfa"])){
     $app->Views['main']->assign('content',$app->Views['detail']->text('main'));
     break;
     default:
-
+    $app->Views["index"]->parse("main");
+    $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
     break;
   }
 }
@@ -59,24 +63,43 @@ else{
 if(isset($_POST["sliderkaydet"])){
 
   $id=$_POST["sliderid"];
-
   $uploads_dir="images/uploads";
-  $temp_name=$_FILES['slidergorsel']['temp_name'];
+  $temp_name=$_FILES['slidergorsel']['tmp_name'];
   $resim_name=$_FILES['slidergorsel']['name'];
+  $slidersira=$_POST["slidersira"];
+
   $sliderresimyol=$uploads_dir."/".$resim_name;
-  print_r($resim_name);
-  exit();
-  @move_uploaded_files($temp_name,"$uploads_dir/$resim_name");
+
+  @move_uploaded_file($temp_name,"$uploads_dir/$resim_name");
 
   $slidersira=$_POST["slidersira"];
   $kaydet=$app->data_run("update slider slider_sira=$slidersira, slider_resim='$sliderresim' where slider_id=$id");
 
-  if(mysqli_affected_rows()){
-    header("location:madmin?msayfa=anasayfa");
-  }
 
+  header("location:madmin/?msayfa=anasayfa");
 }
 
+if(isset($_POST["sliderduzenle"])){
+
+  $id=$_POST["id"];
+  $customname=$_POST["customname"];
+  $uploads_dir="images/uploads";
+
+  $tmp_name=$_FILES["$customname"]["tmp_name"];
+  $resim_name=$_FILES["$customname"]["name"];
+
+  $sliderresimyol=$uploads_dir."/".$resim_name;
+
+  @move_uploaded_file($temp_name,"$uploads_dir/$resim_name");
+
+  $kaydet=$app->data_run("update slider set slider_sira='".$slidersira."' , slider_resim='".$sliderresim."' where slider_id='".$id."'");
+
+  if($kaydet){
+  echo "başarılı";
+}
+/*echo $id.",".$customname.",".$uploads_dir.",".$tmp_name.",".$resim_name.",".$sliderresimyol.",".$slidersira."--bitti";*/
+}
+$app->EndPage();
 $app->Views['main']->parse('main.content');
 $app->Views['main']->parse('main');
 $app->Views['main']->out('main');

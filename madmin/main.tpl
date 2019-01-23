@@ -306,7 +306,7 @@
 <!-- Plugin js for this page-->
 <!-- End plugin js for this page-->
 <!-- inject:js -->
-<script src="js/custom.js"></script>
+
 <script src="js/off-canvas.js"></script>
 <script src="js/misc.js"></script>
 <!-- endinject -->
@@ -316,7 +316,8 @@
 <script src="editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
 <script src="editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>-->
-
+ <script src="http://malsup.github.com/jquery.form.js"></script>
+ <script src="js/custom.js"></script>
 </body>
 
 </html>

@@ -311,7 +311,6 @@ class Teknolobi
 
     function data_get($query)
     {
-
         $return = "";
         if ($this->sqlUsePDO == true) {
             try {
@@ -327,6 +326,7 @@ class Teknolobi
                     break;
                 case 'mysqli':
                     $return = @mysqli_query($this->Connection, $query);
+
                     if (!$return) {
                         $this->Exception[] = "<strong>Database Query Error:</strong> " . mysqli_error();
                     }
@@ -359,6 +359,7 @@ class Teknolobi
                     break;
                 case 'mysqli':
                     $return = @mysqli_query($this->Connection, $query);
+                
                     if (!$return) {
                         $this->Exception[] = "<strong>Database Query Error:</strong> " . mysqli_error();
                     }

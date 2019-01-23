@@ -1,7 +1,6 @@
 <!--BEGIN: main -->
-
 <div class="main-panel">
-  <form action="" method="get">
+  <form id="myForm" action="test.php" method="POST" enctype="multipart/form-data">
     <div class="content-wrapper">
       <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
@@ -20,26 +19,35 @@
                   <th></th>
                   <th></th>
                   <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 <!-- BEGIN: satirlar-->
                 <tr>
                   <td>{sliderid}</td>
-                  <td name="slidersira"  class="editable" >{slidersira}</td>
-                  <td  name="sliderresim"><div id="ad-{resimgoster}" class="imagePreview"></div></td>
-                  <td style="width:190px">
+                  <input value="{sliderid}" type="hidden">
+                  <td><input type="number" name="slidersira" value='{slidersira}' style="width:30px;"></td>
+                  <td><div id="ad-{resimgoster}" class="imagePreview"></div></td>
+                  <td>
                     <label for="{resimgoster}" class="btn btn-gradient-danger">Resim Seç</label>
-                    <input name="slidergorsel" onchange="readURL(this,'ad-{resimgoster}');" id="{resimgoster}"  style="visibility:hidden;" type="file"> </td>
-                    <td style="width:100px;"><button type="button" class="btn btn-gradient-danger">Sil</button></td>
-                  </tr>
-                  <!-- END: satirlar-->
-                </tbody>
-              </table>
-              <input type="button" name="sliderkaydet" class="btn btn-gradient-danger" style="margin:1em"><a href="test.php?sliderkaydet=1"> Kaydet </a></button>
-            </div>
-          </div>
+                    <input name="slidergorsel{resimgoster}" onchange="readURL(this,'ad-{resimgoster}');" id="{resimgoster}" accept=".png, .jpg, .jpeg" style="visibility:hidden;" type="file">
+                  </td>
+                  <td>
+                    <button onclick="slideEdit('{sliderid}','slidergorsel{resimgoster}');" class="btn btn-gradient-danger">Düzenle</button>
+                  </td>
+                  <td style="width:100px;"><a href="test.php?sid={sliderid}">
+                    <button class="btn btn-gradient-danger">Sil</button>
+                  </a>
+                </td>
+              </tr>
+              <!-- END: satirlar-->
+            </tbody>
+          </table>
+          <input type="submit" name="sliderkaydet" class="btn btn-gradient-danger" style="margin:1em;visibility:hidden">
         </div>
-      </form>
+      </div>
     </div>
-    <!--END: main -->
+  </form>
+</div>
+<!--END: main -->
