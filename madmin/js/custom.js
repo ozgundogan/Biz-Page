@@ -27,18 +27,19 @@ function slideEdit(id,gorselName,siraName){
     data: {"sliderduzenle":"1","id": id,"gorselname":gorselName,"siraname":siraName},
     success:function (result) {
 
-        alert(result);
+      alert(result);
 
     }
   })
 }
 function slideSil(id){
-  $.ajax({
-    type:"post",
-    url:'test.php',
-    data:{'sid':id},
+  $("#myForm").ajaxForm({
+    type: 'post',
+    url :'test.php',
+    data:{"sid":id},
     succes:function(cevap){
       alert(cevap);
     }
-  });
+  })
+  
 }

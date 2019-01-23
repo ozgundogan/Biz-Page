@@ -8,6 +8,7 @@ $app->CreateView("index","index.tpl");
 $app->CreateView("ana","anasayfa.tpl");
 $app->StartPage();
 $app->data_connect();
+
 if(isset($_GET["msayfa"])){
   $msayfa=$_GET["msayfa"];
 
@@ -15,15 +16,14 @@ if(isset($_GET["msayfa"])){
 
     case 'anasayfa':
 
-    $deg=$app->data_get("select * from slider");
+    $deg=$app->data_get("select * from slider order by slider_id asc");
 
     while($slider=$app->data_fetch_array($deg))
     {
       $app->Views['ana']->assign('sliderid',$slider["slider_id"]);
       $app->Views['ana']->assign('slidersira',$slider["slider_sira"]);
-      $app->Views['ana']->assign('sliderresim',$slider["slider_resim"]);
-
       $app->Views['ana']->assign('resimgoster',$slider['slider_id']);
+      $app->Views['ana']->assign('defaultGorsel',$slider['slider_resim']);
       $app->Views['ana']->parse("main.satirlar");
     }
     $app->Views['ana']->parse('main');
@@ -90,9 +90,10 @@ if(isset($_POST["sliderduzenle"])){
   $tmp_name=$_FILES["$gorselname"]["tmp_name"];
   $resim_name=$_FILES["$gorselname"]["name"];
 
+
   $sliderresimyol=$uploads_dir."/".$resim_name;
 
-  @move_uploaded_file($temp_name,"$uploads_dir/$resim_name");
+  @move_uploaded_file($tmp_name,"$uploads_dir/$resim_name");
 
   $kaydet=$app->data_run("update slider set slider_sira='".$sliderorder."' , slider_resim='".$sliderresimyol."' where slider_id='".$id."'");
 
@@ -107,10 +108,15 @@ if(isset($_POST["sliderduzenle"])){
 }
 if(isset($_POST["sid"])){
 
-$sil=$app->data_run("delete from slider where slider_id=".$_POST['sid']."");
-if($sil){
-  echo "silindi";
-}
+  $sil=$app->data_run("delete from slider where slider_id=".$_POST['sid']."");
+  print_r($sil);
+  exit();
+  if($sil){
+    echo "silindi";
+  }
+  else{
+    echo "silinmedi";
+  }
 
 }
 $app->EndPage();
