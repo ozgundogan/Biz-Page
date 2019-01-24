@@ -32,14 +32,14 @@ function slideEdit(id,gorselName,siraName){
     }
   })
 }
-function slideSil(id){
+function slideSil(id,resimyolSil){
   $("#myForm").ajaxForm({
     type: 'post',
     url :'test.php',
-    data:{"sid":id},
+    data:{"sid":id,"resimyol":resimyolSil},
     succes:function(cevap){
       alert(cevap);
     }
   })
-  
+
 }

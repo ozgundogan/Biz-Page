@@ -8,6 +8,17 @@ $app->CreateView("index","index.tpl");
 $app->CreateView("ana","anasayfa.tpl");
 $app->StartPage();
 $app->data_connect();
+//seo fonksiyonu
+function seo($text)
+{
+  $find = array('Ç', 'Ş', 'Ğ', 'Ü', 'İ', 'Ö', 'ç', 'ş', 'ğ', 'ü', 'ö', 'ı', '+', '#');
+  $replace = array('c', 's', 'g', 'u', 'i', 'o', 'c', 's', 'g', 'u', 'o', 'i', 'plus', 'sharp');
+  $text = strtolower(str_replace($find, $replace, $text));
+  $text = preg_replace("@[^A-Za-z0-9\-_\.\+]@i", ' ', $text);
+  $text = trim(preg_replace('/\s+/', ' ', $text));
+  $text = str_replace(' ', '-', $text);
+  return $text;
+}
 
 if(isset($_GET["msayfa"])){
   $msayfa=$_GET["msayfa"];
@@ -24,6 +35,7 @@ if(isset($_GET["msayfa"])){
       $app->Views['ana']->assign('slidersira',$slider["slider_sira"]);
       $app->Views['ana']->assign('resimgoster',$slider['slider_id']);
       $app->Views['ana']->assign('defaultGorsel',$slider['slider_resim']);
+      $app->Views['ana']->assign('resimyolsil',$slider['slider_resim']);
       $app->Views['ana']->parse("main.satirlar");
     }
     $app->Views['ana']->parse('main');
@@ -67,7 +79,7 @@ if(isset($_POST["sliderkaydet"])){
   $temp_name=$_FILES['slidergorsel']['tmp_name'];
   $resim_name=$_FILES['slidergorsel']['name'];
   $slidersira=$_POST["slidersira"];
-
+  $resim_name=seo($resim_name);
   $sliderresimyol=$uploads_dir."/".$resim_name;
 
   @move_uploaded_file($temp_name,'$uploads_dir/$resim_name');
@@ -89,7 +101,7 @@ if(isset($_POST["sliderduzenle"])){
 
   $tmp_name=$_FILES["$gorselname"]["tmp_name"];
   $resim_name=$_FILES["$gorselname"]["name"];
-
+  $resim_name=seo($resim_name);
 
   $sliderresimyol=$uploads_dir."/".$resim_name;
 
@@ -107,17 +119,16 @@ if(isset($_POST["sliderduzenle"])){
   /*echo $id.",".$customname.",".$uploads_dir.",".$tmp_name.",".$resim_name.",".$sliderresimyol.",".$slidersira."--bitti";*/
 }
 if(isset($_POST["sid"])){
-
+  $resimyol=$_POST["resimyol"];
   $sil=$app->data_run("delete from slider where slider_id=".$_POST['sid']."");
-  print_r($sil);
-  exit();
-  if($sil){
+  $slidersil = mysqli_query($baglanti, "delete from slider where slider_id='" . $_GET["slidesid"] . "'");
+  if ($sil) {
+    unlink("$resimyol");
     echo "silindi";
   }
   else{
     echo "silinmedi";
   }
-
 }
 $app->EndPage();
 $app->Views['main']->parse('main.content');

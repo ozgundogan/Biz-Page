@@ -37,7 +37,7 @@
                     <button onclick="slideEdit('{sliderid}','slidergorsel{resimgoster}','slidersira{sliderid}');" class="btn btn-gradient-danger">Düzenle</button>
                   </td>
                   <td style="width:100px;">
-                    <button onclick="slideSil('{sliderid}');" class="btn btn-gradient-danger" >Sil</button>
+                    <button onclick="slideSil('{sliderid}','{resimyolsil}');" class="btn btn-gradient-danger" >Sil</button>
                   </td>
                 </tr>
                 <!-- END: satirlar-->
