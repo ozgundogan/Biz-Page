@@ -56,6 +56,7 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+$enable-gradients: true;
 @-moz-keyframes flash {
   0% {
     opacity: 1;

@@ -92,7 +92,7 @@ if(isset($_POST["sliderkaydet"])){
 }
 
 if(isset($_POST["sliderduzenle"])){
-
+  $array=array();
   $id=$_POST["id"];
   $gorselname=$_POST["gorselname"];
   $siraname=$_POST["siraname"];
@@ -110,12 +110,11 @@ if(isset($_POST["sliderduzenle"])){
   $kaydet=$app->data_run("update slider set slider_sira='".$sliderorder."' , slider_resim='".$sliderresimyol."' where slider_id='".$id."'");
 
   if($kaydet){
-    $durum="ok";
-
+    $sonuc=true;
   } else{
-    $durum="no";
+    $sonuc=false;
   }
-  echo $durum;
+  echo $sonuc;
   /*echo $id.",".$customname.",".$uploads_dir.",".$tmp_name.",".$resim_name.",".$sliderresimyol.",".$slidersira."--bitti";*/
 }
 if(isset($_POST["sid"])){
@@ -124,11 +123,12 @@ if(isset($_POST["sid"])){
   $slidersil = mysqli_query($baglanti, "delete from slider where slider_id='" . $_GET["slidesid"] . "'");
   if ($sil) {
     unlink("$resimyol");
-    echo "silindi";
+    $array["durum"]=true;;
   }
   else{
-    echo "silinmedi";
+    $array["durum"]=false;
   }
+  echo json_encode($array);
 }
 $app->EndPage();
 $app->Views['main']->parse('main.content');

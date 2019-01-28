@@ -5,6 +5,7 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Purple Admin</title>
   <!-- plugins:css -->
@@ -14,14 +15,33 @@
   <!-- endinject -->
   <!-- Bootstrap CSS File -->
   <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- inject:css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <!-- For toaster -->
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+  <!-- inj1ect:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
   <!-- x-editable -->
   <link rel="stylesheet" href="editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
-<!--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> -->
+  <!--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> -->
   <link rel="stylesheet" href="css/custom.css"/>
+
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <!--<![endif]-->
+
+  <!--[if IE]>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <![endif]-->
+
 </head>
 <body>
   <div class="container-scroller">
@@ -279,26 +299,32 @@
       <!-- BEGIN:content -->
       {content}
       <!-- END: content -->
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
 
-      <!-- partial:partials/_footer.html -->
-      <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
-        </div>
-      </footer>
-      <!-- partial -->
-    </div>
-    <!-- main-panel ends -->
-  </div>
-  <!-- page-body-wrapper ends -->
-</div>
-<!-- container-scroller -->
+      <!--[if !IE]>-->
+
+      <script src="jquery.toaster.js"></script>
+      <script>
+
+      </script>
 
 <!-- plugins:js -->
-<script src="../lib/jquery/jquery.min.js"></script>
 <script src="../lib/jquery/jquery-migrate.min.js"></script>
 <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="toaster/jquery.toaster.js"></script>
+
+<!-- for toaster -->
+
+
+<!--[if IE]>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<![endif]-->
+
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
@@ -315,9 +341,12 @@
 <!-- End custom js for this page-->
 <script src="editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
 <script src="editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>-->
- <script src="http://malsup.github.com/jquery.form.js"></script>
- <script src="js/custom.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="toaster/jquery.toaster.js"></script>
+<script src="js/custom.js"></script>
 </body>
 
 </html>

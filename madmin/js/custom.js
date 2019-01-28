@@ -1,3 +1,8 @@
+var running = true;
+var interval;
+
+doToast();
+start();
 $(function() {
   $('.editable').editable({
     mode: 'inline',
@@ -15,7 +20,6 @@ function readURL(input,id) {
       $('#'+id).hide();
       $('#'+id).fadeIn(650);
     }
-    console.log(id);
     reader.readAsDataURL(input.files[0]);
   }
 }
@@ -26,9 +30,16 @@ function slideEdit(id,gorselName,siraName){
     url :'test.php',
     data: {"sliderduzenle":"1","id": id,"gorselname":gorselName,"siraname":siraName},
     success:function (result) {
+      if(result){
+              var priority = 'success';
+              var title    = 'Success';
+              var message  = 'It worked!';
 
-      alert(result);
-
+              $.toaster({ priority : priority, title : title, message : message });
+              this.blur();
+      }else{
+        alert("no");
+      }
     }
   })
 }
@@ -37,8 +48,14 @@ function slideSil(id,resimyolSil){
     type: 'post',
     url :'test.php',
     data:{"sid":id,"resimyol":resimyolSil},
+    dataType:'json',
     succes:function(cevap){
-      alert(cevap);
+      if(cevap.durum){
+        alert("llal");
+      }
+      else{
+        alert("llal");
+      }
     }
   })
 
