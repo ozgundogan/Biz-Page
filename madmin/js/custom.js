@@ -1,8 +1,4 @@
-var running = true;
-var interval;
 
-doToast();
-start();
 $(function() {
   $('.editable').editable({
     mode: 'inline',
@@ -32,8 +28,8 @@ function slideEdit(id,gorselName,siraName){
     success:function (result) {
       if(result){
               var priority = 'success';
-              var title    = 'Success';
-              var message  = 'It worked!';
+              var title    = 'Başarılı';
+              var message  = '';
 
               $.toaster({ priority : priority, title : title, message : message });
               this.blur();
@@ -51,7 +47,12 @@ function slideSil(id,resimyolSil){
     dataType:'json',
     succes:function(cevap){
       if(cevap.durum){
-        alert("llal");
+        var priority = 'success';
+        var title    = 'Başarılı';
+        var message  = '';
+
+        $.toaster({ priority : priority, title : title, message : message });
+        this.blur();
       }
       else{
         alert("llal");
@@ -59,4 +60,7 @@ function slideSil(id,resimyolSil){
     }
   })
 
+}
+function addRow(){
+$("#slider").append("<tr><td>gr</td><td>rfr</td><td>frf</td><td>frfr</td></tr>");
 }

@@ -9,7 +9,7 @@
             <p class="card-description">
               Slider <code>.table-hover</code>
             </p>
-            <button type="button" class="btn btn-gradient-success" style="margin:25px;">Yeni</button>
+            <button type="button" class="btn btn-gradient-success" onclick="addRow(); return false;" style="margin:25px;">Yeni</button>
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -22,7 +22,7 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="slider">
                 <!-- BEGIN: satirlar-->
                 <tr>
                   <td>{sliderid}</td>

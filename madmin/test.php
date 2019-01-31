@@ -107,7 +107,12 @@ if(isset($_POST["sliderduzenle"])){
 
   @move_uploaded_file($tmp_name,"$uploads_dir/$resim_name");
 
-  $kaydet=$app->data_run("update slider set slider_sira='".$sliderorder."' , slider_resim='".$sliderresimyol."' where slider_id='".$id."'");
+  $sorgu="update slider set slider_sira='".$sliderorder."'";
+  if($resim_name!=""){
+    $sorgu.= ", slider_resim='".$sliderresimyol."'";
+  }
+  $sorgu.=" where slider_id='".$id."'";
+  $kaydet=$app->data_run($sorgu);
 
   if($kaydet){
     $sonuc=true;
@@ -123,7 +128,7 @@ if(isset($_POST["sid"])){
   $slidersil = mysqli_query($baglanti, "delete from slider where slider_id='" . $_GET["slidesid"] . "'");
   if ($sil) {
     unlink("$resimyol");
-    $array["durum"]=true;;
+    $array["durum"]=true;
   }
   else{
     $array["durum"]=false;

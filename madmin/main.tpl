@@ -34,7 +34,6 @@
   <link rel="stylesheet" href="editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
   <!--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> -->
   <link rel="stylesheet" href="css/custom.css"/>
-
   <script src="../lib/jquery/jquery.min.js"></script>
   <!--<![endif]-->
 
@@ -238,13 +237,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-title">Icons</span>
+              <span class="menu-title">Menu</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
-              <span class="menu-title">Forms</span>
+              <span class="menu-title">Bloglar</span>
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
             </a>
           </li>

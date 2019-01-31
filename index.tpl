@@ -11,20 +11,19 @@
       <li data-target="#carousel-slider" data-slide-to="2"></li>
     </ul>
     <!-- The slideshow -->
+
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div id="home" class="intro route bg-image" style="background-image: url(img/intro-bg.jpg)">
+        <div id="home" class="intro route bg-image" style="background-image: url(img/work-1.jpg)">
           <div class="overlay-itro"></div>
         </div>
       </div>
+      <!-- BEGIN: slider -->
       <div class="carousel-item">
-        <div class="intro bg-image" style ="background-image:url(img/work-5.jpg)">
+        <div class="intro bg-image" style ="background-image:url(madmin/{img}) ">
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="intro bg-image" style="background-image:url(img/work-4.jpg)"></div>
-      </div>
-    </div>
+      <!-- END: slider -->
     <!-- Left and right controls -->
     <a class="carousel-control-prev" href="#carousel-slider" data-slide="prev">
       <span class="carousel-control-prev-icon"></span>
