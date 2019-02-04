@@ -6,6 +6,11 @@ $GLOBALS['app'] = new Teknolobi();
 $app->CreateView("main","main.tpl");
 $app->CreateView("index","index.tpl");
 $app->CreateView("ana","anasayfa.tpl");
+$app->CreateView("user","user/users.tpl");
+$app->CreateView("edit","user/edit.tpl");
+$app->CreateView("register","user/register.tpl");
+$app->CreateView("blog","blog.tpl");
+$app->CreateView("menu","menu.tpl");
 $app->StartPage();
 $app->data_connect();
 //seo fonksiyonu
@@ -41,26 +46,24 @@ if(isset($_GET["msayfa"])){
     $app->Views['ana']->parse('main');
     $app->Views['main']->assign('content',$app->Views['ana']->text('main'));
     break;
-    case 'hizmetler':
-    $app->Views['hizmetler']->parse('main');
-    $app->Views['main']->assign('content',$app->Views['hizmetler']->text('main'));
+    case 'users':
+    $userTable=$app->data_get("select * from users order by username asc");
+    while($users=$app->data_fetch_array($userTable)){
+      $app->Views['user']->assign('id',$users["id"]);
+      $app->Views['user']->assign('username',$users["username"]);
+      $app->Views['user']->assign('eposta',$users['email']);
+      $app->Views['user']->parse("main.satir");
+    }
+    $app->Views['user']->parse('main');
+    $app->Views['main']->assign('content',$app->Views['user']->text('main'));
     break;
-    case 'calismalar':
-    $app->Views['calismalar']->parse('main');
-    $app->Views['main']->assign('content',$app->Views['calismalar']->text('main'));
+    case 'edit':
+    $app->Views['edit']->parse('main');
+    $app->Views['main']->assign('content',$app->Views['edit']->text('main'));
     break;
-    case 'blog':
-    $app->Views['blog']->assign('blogdetay',"/".seo("see more details")."/"."3");
-    $app->Views['blog']->parse('main');
-    $app->Views['main']->assign('content',$app->Views['blog']->text('main'));
-    break;
-    case 'iletisim':
-    $app->Views['iletisim']->parse('main');
-    $app->Views['main']->assign('content',$app->Views['iletisim']->text('main'));
-    break;
-    case 'blogdetail':
-    $app->Views['detail']->parse('main');
-    $app->Views['main']->assign('content',$app->Views['detail']->text('main'));
+    case 'register':
+    $app->Views['register']->parse('main');
+    $app->Views['main']->assign('content',$app->Views['register']->text('main'));
     break;
     default:
     $app->Views["index"]->parse("main");

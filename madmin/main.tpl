@@ -236,20 +236,20 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="?msayfa=menu">
               <span class="menu-title">Menu</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="?msayfa=blog">
               <span class="menu-title">Bloglar</span>
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-              <span class="menu-title">Charts</span>
+            <a class="nav-link" href="?msayfa=users">
+              <span class="menu-title">Kullanıcılar</span>
               <i class="mdi mdi-chart-bar menu-icon"></i>
             </a>
           </li>

@@ -40,13 +40,31 @@
   background-size: cover;
 }
 label.btn.btn-gradient-danger{
- margin-bottom:-10px;
- margin-top: 10px;
- float: right;
+  margin-bottom:-10px;
+  margin-top: 10px;
+  float: right;
 }
 table td{
   vertical-align: middle;
   font-size: 0.875rem;
   line-height: 1;
   width: 150px;
+}
+.btn-primary{
+  background-color: #387cb7;
+  border-color: #387cb7;
+  border-color: #387cb7;
+  background-image: none !important;
+}
+.btn-primary:hover{
+  color: #fff;
+  background-color: #387cb7 !important;
+  border-color: #387cb7;
+  border-color: #387cb7;
+}
+#showImage{
+  width:150px;
+  height:150px;
+  background-size: cover;
+  border-radius: 100px;
 }

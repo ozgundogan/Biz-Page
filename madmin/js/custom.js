@@ -12,9 +12,11 @@ function readURL(input,id) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function(e) {
+      $("[name=file_]").val(e.target.result);
       $('#'+id).css('background-image', 'url('+e.target.result +')');
       $('#'+id).hide();
       $('#'+id).fadeIn(650);
+
     }
     reader.readAsDataURL(input.files[0]);
   }
