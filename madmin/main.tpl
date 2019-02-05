@@ -243,7 +243,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="?msayfa=blog">
-              <span class="menu-title">Bloglar</span>
+              <span class="menu-title">Blog</span>
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
             </a>
           </li>

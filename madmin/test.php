@@ -65,6 +65,10 @@ if(isset($_GET["msayfa"])){
     $app->Views['register']->parse('main');
     $app->Views['main']->assign('content',$app->Views['register']->text('main'));
     break;
+    case 'menu':
+    $app->Views['menu']->parse('main');
+    $app->Views['main']->assign('content',$app->Views['menu']->text('main'));
+    break;
     default:
     $app->Views["index"]->parse("main");
     $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
