@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
   <!--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> -->
   <link rel="stylesheet" href="css/custom.css"/>
+  <link rel="stylesheet" href="../lib/nestable2/jquery.nestable.css"/>
   <script src="../lib/jquery/jquery.min.js"></script>
   <!--<![endif]-->
 
@@ -345,6 +346,7 @@
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>-->
 <script src="http://malsup.github.com/jquery.form.js"></script>
 <script src="toaster/jquery.toaster.js"></script>
+<script src="../lib/nestable2/jquery.nestable.js"></script>
 <script src="js/custom.js"></script>
 </body>
 

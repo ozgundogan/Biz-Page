@@ -32,37 +32,37 @@ function getminprice($ptype) {
 	return $minval;
 }
 function cleanstring($vp_string){
-    $vp_string = trim($vp_string);
-    $vp_string = html_entity_decode($vp_string);
-    $vp_string = strip_tags($vp_string);
+	$vp_string = trim($vp_string);
+	$vp_string = html_entity_decode($vp_string);
+	$vp_string = strip_tags($vp_string);
 	$vp_string = str_replace(array("Ç","ç","Ş","ş","Ğ","ğ","ı","Ö","ö","Ü","ü","İ"),array("c","c","s","s","g","g","i","o","o","u","u","i"),$vp_string);
-    $vp_string = preg_replace('~[^ a-z0-9_.]~', ' ', $vp_string);
-    $vp_string = preg_replace('~ ~', '-', $vp_string);
-    $vp_string = preg_replace('~-+~', '-', $vp_string);
-    return $vp_string;
+	$vp_string = preg_replace('~[^ a-z0-9_.]~', ' ', $vp_string);
+	$vp_string = preg_replace('~ ~', '-', $vp_string);
+	$vp_string = preg_replace('~-+~', '-', $vp_string);
+	return $vp_string;
 }
 
 function get_client_ip() {
-    $ipaddress = '';
+	$ipaddress = '';
 	if($_SERVER['SERVER_NAME'] == "localhost") {
-		 $ipaddress = 'no';
+		$ipaddress = 'no';
 	} else {
 		if (isset($_SERVER['HTTP_CLIENT_IP']))
-			$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+		$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
 		else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-			$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
 		else if(isset($_SERVER['HTTP_X_FORWARDED']))
-			$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+		$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
 		else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-			$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+		$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
 		else if(isset($_SERVER['HTTP_FORWARDED']))
-			$ipaddress = $_SERVER['HTTP_FORWARDED'];
+		$ipaddress = $_SERVER['HTTP_FORWARDED'];
 		else if(isset($_SERVER['REMOTE_ADDR']))
-			$ipaddress = $_SERVER['REMOTE_ADDR'];
+		$ipaddress = $_SERVER['REMOTE_ADDR'];
 		else
-			$ipaddress = 'UNKNOWN';
+		$ipaddress = 'UNKNOWN';
 	}
-    return $ipaddress;
+	return $ipaddress;
 }
 if(!isset($_SESSION['logged'])) {
 	$userip = get_client_ip();
@@ -270,27 +270,27 @@ function startadminpage() {
 			$GLOBALS['main']->assign('slomessage',getmessagevalue($row['slomessage']));
 			$GLOBALS['main']->assign('slodate',time_elapsed_string($row['slodate']));
 			switch ($row['slotype']) {
-			case "siparis":
+				case "siparis":
 				$GLOBALS['main']->assign('slourl',"order.php?o=".$row['slodata']);
 				$GLOBALS['main']->assign('sloicon',"wb-order");
 				$GLOBALS['main']->assign('slocolor',"red");
 				break;
-			case "siparis-gonderildi":
+				case "siparis-gonderildi":
 				$GLOBALS['main']->assign('slourl',"order.php?o=".$row['slodata']);
 				$GLOBALS['main']->assign('sloicon',"fa-mail-forward");
 				$GLOBALS['main']->assign('slocolor',"yellow");
 				break;
-			case "uye-kaydi":
+				case "uye-kaydi":
 				$GLOBALS['main']->assign('slourl',"customer.php?o=".$row['slodata']);
 				$GLOBALS['main']->assign('sloicon',"wb-user-add");
 				$GLOBALS['main']->assign('slocolor',"blue");
 				break;
-			case "siparis-kargolandi":
+				case "siparis-kargolandi":
 				$GLOBALS['main']->assign('slourl',"order.php?o=".$row['slodata']);
 				$GLOBALS['main']->assign('sloicon',"fa-truck");
 				$GLOBALS['main']->assign('slocolor',"green");
 				break;
-			case 1:
+				case 1:
 				$GLOBALS['main']->assign('slourl',"javascript:void(0)");
 				break;
 			}
@@ -464,31 +464,87 @@ function endpage() {
 }
 
 function time_elapsed_string($datetime, $full = false) {
-    $now = new DateTime;
-    $ago = new DateTime($datetime);
-    $diff = $now->diff($ago);
+	$now = new DateTime;
+	$ago = new DateTime($datetime);
+	$diff = $now->diff($ago);
 
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
+	$diff->w = floor($diff->d / 7);
+	$diff->d -= $diff->w * 7;
 
-    $string = array(
-        'y' => 'yil',
-        'm' => 'ay',
-        'w' => 'hafta',
-        'd' => 'gun',
-        'h' => 'saat',
-        'i' => 'dakika',
-        's' => 'saniye',
-    );
-    foreach ($string as $k => &$v) {
-        if ($diff->$k) {
-            $v = $diff->$k . ' ' . getlngvalue("lng-tarih-".$v);
-        } else {
-            unset($string[$k]);
-        }
-    }
+	$string = array(
+		'y' => 'yil',
+		'm' => 'ay',
+		'w' => 'hafta',
+		'd' => 'gun',
+		'h' => 'saat',
+		'i' => 'dakika',
+		's' => 'saniye',
+	);
+	foreach ($string as $k => &$v) {
+		if ($diff->$k) {
+			$v = $diff->$k . ' ' . getlngvalue("lng-tarih-".$v);
+		} else {
+			unset($string[$k]);
+		}
+	}
 
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . " ".getlngvalue("lng-tarih-once") : " ".getlngvalue("lng-tarih-simdi");
+	if (!$full) $string = array_slice($string, 0, 1);
+	return $string ? implode(', ', $string) . " ".getlngvalue("lng-tarih-once") : " ".getlngvalue("lng-tarih-simdi");
+}
+if(!function_exists("sirala")){
+
+}
+
+if (!function_exists("has_children")) {
+	function has_children($rows,$id){
+		foreach ($rows as $row) {
+			if ($row->parent == $id) {
+				return true;
+			}
+		}
+		return false;
+	}
+}
+if(!function_exists("menu")){
+
+	function menu($rows, $parent = 0) {
+		if (is_array($rows)) {
+			$rows = json_decode(json_encode($rows));
+		}
+		$result = '';
+		foreach ($rows as $row) {
+			if ( $row->parent == $parent) {
+				if (has_children($rows, $row->id)) {
+					$result .= '<li class="dd-item" data-id="'.$row->id.'">
+					<div class="dd-handle">
+					<span class="label label-info"></span>'.$row->title.'
+					</div>
+
+					<div class="btn-group mb-0 regulated">
+					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.language.status(this);" data-url="category/status/'.$row->id.'" value="'.$row->status.'"'.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
+					<a href="category/status/'.$row->id.'" data-toggle="modal" data-target="#remoteModal" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-lg"></i> Edit</a>
+					<a href="category/status/'.$row->id.'" class="btn btn-xs btn-danger" onclick="$a.language.delete(this); return false;"><i class="fa fa-lg fa-trash"></i> Delete</a>
+					</div>
+
+					<ol class="dd-list">';
+					$result .= menu($rows, $row->id);
+					$result .= "</ol></li>";
+				}else{
+					$result .= '<li class="dd-item " data-id="'.$row->id .'">
+					<div class="dd-handle">
+					<span class="label label-info"></span>'.$row->title.'
+					</div>
+
+					<div class="btn-group mb-0 regulated">
+					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.language.status(this);" data-url="category/status/" value="'.$row->status.'" '.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
+					<a href="category/status/'.$row->id.'" data-toggle="modal" data-target="#remoteModal" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-lg"></i> Edit</a>
+					<a href="category/status/'.$row->id.'" class="btn btn-xs btn-danger" onclick="$a.category.delete(this); return false;"><i class="fa fa-lg fa-trash"></i> Delete</a>
+					</div>
+					</li>';
+				}
+			}
+		}
+		return $result;
+	}
 }
 ?>

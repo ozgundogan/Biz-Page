@@ -1,70 +1,76 @@
 .sidebar .nav-item:before{
-  content: '';
-  position: absolute;
-  width: 0%;
-  bottom:0px;
-  left: 0;
-  height: 2px;
-  transition: all 1000ms cubic-bezier(0.37, 0.04, 0.6, 1.01);
-  background-color: #b66dff;
+    content: '';
+    position: absolute;
+    width: 0%;
+    bottom:0px;
+    left: 0;
+    height: 2px;
+    transition: all 1000ms cubic-bezier(0.37, 0.04, 0.6, 1.01);
+    background-color: #b66dff;
 }
 .sidebar .nav-item:hover:before{
-  width: 100%;
+    width: 100%;
 }
 .sidebar li:not(:first-child){
-  position:relative;
-  line-height: 1.3;
+    position:relative;
+    line-height: 1.3;
 }
 .font-weight-bold.mb-2{
-  white-space: normal;
+    white-space: normal;
 }
 .glyphicon-ok:before {
-  content: "\f00c";
+    content: "\f00c";
 }
 .glyphicon-remove:before {
-  content: "\f00d";
+    content: "\f00d";
 }
 .glyphicon {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .imagePreview{
-  width: 130%;
-  height: 70px;
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    width: 130%;
+    height: 70px;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 label.btn.btn-gradient-danger{
-  margin-bottom:-10px;
-  margin-top: 10px;
-  float: right;
+    margin-bottom:-10px;
+    margin-top: 10px;
+    float: right;
 }
 table td{
-  vertical-align: middle;
-  font-size: 0.875rem;
-  line-height: 1;
-  width: 150px;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    line-height: 1;
+    width: 150px;
 }
 .btn-primary{
-  background-color: #387cb7;
-  border-color: #387cb7;
-  border-color: #387cb7;
-  background-image: none !important;
+    background-color: #387cb7;
+    border-color: #387cb7;
+    border-color: #387cb7;
+    background-image: none !important;
 }
 .btn-primary:hover{
-  color: #fff;
-  background-color: #387cb7 !important;
-  border-color: #387cb7;
-  border-color: #387cb7;
+    color: #fff;
+    background-color: #387cb7 !important;
+    border-color: #387cb7;
+    border-color: #387cb7;
 }
 #showImage{
-  width:150px;
-  height:150px;
-  background-size: cover;
-  border-radius: 100px;
+    width:150px;
+    height:150px;
+    background-size: cover;
+    border-radius: 100px;
+}
+.regulated{
+    background-color: #fafafa;
+    float: right;
+    top: -35px;
+    height: 30px;
 }

@@ -1,5 +1,25 @@
 
 $(function() {
+    $('.dd').nestable({
+        group: 1
+    }).on('change',function() {
+        $.ajax({
+            type: 'POST',
+            url: "test.php",
+            data: {
+                list: $(this).nestable('serialize')
+            },
+            success: function(data) {
+                var priority = 'success';
+                var title    = 'Başarılı';
+                var message  = 'Sıralama başarılı';
+                $.toaster({ priority : priority, title : title, message : message });
+            }
+        });
+        console.log($(this).nestable('serialize'));
+
+    });
+
   $('.editable').editable({
     mode: 'inline',
     type: 'number',
@@ -66,3 +86,11 @@ function slideSil(id,resimyolSil){
 function addRow(){
 $("#slider").append("<tr><td>gr</td><td>rfr</td><td>frf</td><td>frfr</td></tr>");
 }
+$('.dd').nestable({ /* config options */ });
+$('.dd').nestable('serialize');
+$('.dd').nestable({
+    callback: function(l,e){
+        // l is the main container
+        // e is the element that was moved
+    }
+});
