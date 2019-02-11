@@ -12,6 +12,7 @@ $app->CreateView("edit","user/edit.tpl");
 $app->CreateView("register","user/register.tpl");
 $app->CreateView("blog","blog.tpl");
 $app->CreateView("menu","menu.tpl");
+$app->CreateView("createm","create-menu.tpl");
 $app->StartPage();
 $app->data_connect();
 //seo fonksiyonu
@@ -82,6 +83,10 @@ if(isset($_GET["msayfa"])){
         $app->Views['menu']->assign('menuler',$result);
         $app->Views['menu']->parse('main');
         $app->Views['main']->assign('content',$app->Views['menu']->text('main'));
+        break;
+        case 'createm':
+        $app->Views['createm']->parse('main');
+        $app->Views['main']->assign('content',$app->Views['createm']->text('main'));
         break;
         default:
         $app->Views["index"]->parse("main");
@@ -163,7 +168,6 @@ function sirala($list, $parent_id = 0, & $m_order = 0)
         $m_order++;
         $update=$ap->data_run("update menuler set orderBy=".$m_order.", parent=".$parent_id." where id='".$item["id"]."'");
         if($update){
-            exit();
             if (array_key_exists("children", $item)) {
                 sirala($item["children"], $item["id"], $m_order);
             }
@@ -174,7 +178,10 @@ if(isset($_POST["list"])){
     $list=$_POST["list"];
     sirala($list);
 }
-
+if($_POST["menuKaydet"]){
+    $result['code']=true;
+    echo json_encode($result);
+}
 $app->EndPage();
 $app->Views['main']->parse('main.content');
 $app->Views['main']->parse('main');

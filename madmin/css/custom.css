@@ -74,3 +74,11 @@ table td{
     top: -35px;
     height: 30px;
 }
+.btn-edit{
+    background-color:#fe7c96;
+    color:#fff;
+}
+.btn-delete{
+    background-color:#fed713;
+    color:#fff;
+}
