@@ -521,7 +521,7 @@ if(!function_exists("menu")){
 					</div>
 
 					<div class="btn-group mb-0 regulated">
-					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.language.status(this);" data-url="category/status/'.$row->id.'" value="'.$row->status.'"'.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
+					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.menu.status(this);" data-url="vendors/helper.php/'.$row->id.'" value="'.$row->status.'"'.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
 					<a href="category/status/'.$row->id.'" data-toggle="modal" data-target="#remoteModal" class="btn btn-xs btn-edit"><i class="fa fa-edit fa-lg"></i> Edit</a>
 					<a href="category/status/'.$row->id.'" class="btn btn-xs btn-delete" onclick="$a.language.delete(this); return false;"><i class="fa fa-lg fa-trash"></i> Delete</a>
 					</div>

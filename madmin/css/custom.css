@@ -78,7 +78,15 @@ table td{
     background-color:#fe7c96;
     color:#fff;
 }
+.btn-edit:hover{
+    background-color:#fed713;
+    color:#fff;
+}
 .btn-delete{
     background-color:#fed713;
+    color:#fff;
+}
+.btn-delete:hover{
+    background-color:#fe7c96;
     color:#fff;
 }

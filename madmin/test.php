@@ -150,7 +150,6 @@ if(isset($_POST["sliderduzenle"])){
 if(isset($_POST["sid"])){
     $resimyol=$_POST["resimyol"];
     $sil=$app->data_run("delete from slider where slider_id=".$_POST['sid']."");
-    $slidersil = mysqli_query($baglanti, "delete from slider where slider_id='" . $_GET["slidesid"] . "'");
     if ($sil) {
         unlink("$resimyol");
         $array["durum"]=true;
@@ -182,7 +181,11 @@ if($_POST["menuKaydet"]){
     $menuad=$_POST["menuAdi"];
     $insert=$app->data_run("insert into menuler (title,status,orderBy,parent) values ('$menuad','1','1','0')");
     if($insert){
+        $table=$app->data_get("select * from menuler order by id desc limit 1");
+        $row=$app->data_fetch_array($table);
+        $result["id"]=$row["id"];
         $result["code"]=true;
+        $result["name"]=$menuad;
     }else{
         $result["code"]=false;
     }

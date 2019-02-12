@@ -19,30 +19,15 @@ $(function() {
         console.log($(this).nestable('serialize'));
 
     });
-
-    $('.editable').editable({
-        mode: 'inline',
-        type: 'number',
-        step: '1.00',
-        min: '0.00',
-        max: '24'
-    });
-    $(".modal").on("hidden.bs.modal", function(){
-        $(this).removeData();
-    });
-
-    $('body').on('hidden.bs.modal', '.modal', function () {
-        $(this).removeData('bs.modal');
-    });
-
-    $('#menuModal').on('hidden', function () {
-        $(this).removeData('modal');
-    });
-
-    $('#menuModal').on('hidden.bs.modal', function () {
-     location.reload();
-    })
 });
+$('.editable').editable({
+    mode: 'inline',
+    type: 'number',
+    step: '1.00',
+    min: '0.00',
+    max: '24'
+});
+
 function readURL(input,id) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -71,7 +56,12 @@ function slideEdit(id,gorselName,siraName){
                 $.toaster({ priority : priority, title : title, message : message });
                 this.blur();
             }else{
-                alert("no");
+                var priority = 'danger';
+                var title    = 'Başarısız';
+                var message  = '';
+
+                $.toaster({ priority : priority, title : title, message : message });
+                this.blur();
             }
         }
     })
@@ -112,13 +102,15 @@ var $a = $.a = a = {
             var data = $(elem).serializeArray();
             $.post($(elem).attr('action'),data,function(res) {
                 if (res.code) {
+                    $('.dd').nestable('add', {"id":res.name});
                     var priority = 'success';
                     var title    = 'Başarılı';
                     var message  = 'İşlem başarılı';
 
                     $.toaster({ priority : priority, title : title, message : message });
                     $('#menuModal').modal('hide');
-                    $(elem).active();
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
                 }else{
                     var priority = 'danger';
                     var title    = 'Başarısız';
@@ -129,5 +121,21 @@ var $a = $.a = a = {
                 }
             },'json');
         },
+        status: function(elem){
+            $.post($(elem).data('url'), {status : $(elem).val()}, function(data, textStatus, xhr) {
+                if (data.code) {
+                    var priority = 'success';
+                    var title    = 'Başarılı';
+                    var message  = 'İşlem başarılı';
+                    $.toaster({ priority : priority, title : title, message : message });
+                }else{
+                    var priority = 'danger';
+                    var title    = 'Başarısız';
+                    var message  = 'İşlem başarısız';
+
+                    $.toaster({ priority : priority, title : title, message : message });
+                }
+            },'json');
+        }
     }
 }

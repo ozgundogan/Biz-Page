@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel" aria-hidden="true">
+<div class="modal" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form action="test.php" onsubmit="$a.menu.add(this); return false;">
@@ -36,7 +36,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-gradient-primary mr-2"  data-dissmiss="close" value="Kaydet">
+                    <input type="submit" class="btn btn-gradient-primary mr-2" value="Kaydet">
                 </div>
             </form>
         </div>
