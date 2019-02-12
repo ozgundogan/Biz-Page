@@ -27,6 +27,21 @@ $(function() {
         min: '0.00',
         max: '24'
     });
+    $(".modal").on("hidden.bs.modal", function(){
+        $(this).removeData();
+    });
+
+    $('body').on('hidden.bs.modal', '.modal', function () {
+        $(this).removeData('bs.modal');
+    });
+
+    $('#menuModal').on('hidden', function () {
+        $(this).removeData('modal');
+    });
+
+    $('#menuModal').on('hidden.bs.modal', function () {
+     location.reload();
+    })
 });
 function readURL(input,id) {
     if (input.files && input.files[0]) {
@@ -93,25 +108,26 @@ $('.dd').nestable({
 });
 var $a = $.a = a = {
     menu:{
-        add:  function(elem){
-            var data=$(elem).serializeArray();
-            $.post($(elem).attr('action'),data,function(res){
-                if(res.code){
+        add:function(elem){
+            var data = $(elem).serializeArray();
+            $.post($(elem).attr('action'),data,function(res) {
+                if (res.code) {
                     var priority = 'success';
                     var title    = 'Başarılı';
-                    var message  = '';
+                    var message  = 'İşlem başarılı';
 
                     $.toaster({ priority : priority, title : title, message : message });
-                }
-                else{
+                    $('#menuModal').modal('hide');
+                    $(elem).active();
+                }else{
                     var priority = 'danger';
-                    var title    = 'Warning';
-                    var message  = 'olmadı';
+                    var title    = 'Başarısız';
+                    var message  = 'İşlem başarısız';
 
                     $.toaster({ priority : priority, title : title, message : message });
-
+                    $('#menuModal').modal('hide');
                 }
             },'json');
-        }
+        },
     }
 }

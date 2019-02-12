@@ -179,8 +179,15 @@ if(isset($_POST["list"])){
     sirala($list);
 }
 if($_POST["menuKaydet"]){
-    $result['code']=true;
+    $menuad=$_POST["menuAdi"];
+    $insert=$app->data_run("insert into menuler (title,status,orderBy,parent) values ('$menuad','1','1','0')");
+    if($insert){
+        $result["code"]=true;
+    }else{
+        $result["code"]=false;
+    }
     echo json_encode($result);
+    exit();
 }
 $app->EndPage();
 $app->Views['main']->parse('main.content');
