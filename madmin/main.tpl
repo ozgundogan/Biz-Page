@@ -24,8 +24,6 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-
-
   <!-- inj1ect:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
@@ -33,8 +31,8 @@
   <!-- x-editable -->
   <link rel="stylesheet" href="editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
   <!--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> -->
-  <link rel="stylesheet" href="css/custom.css"/>
   <link rel="stylesheet" href="../lib/nestable2/jquery.nestable.css"/>
+  <link rel="stylesheet" href="css/custom.css"/>
   <script src="../lib/jquery/jquery.min.js"></script>
   <!--<![endif]-->
 

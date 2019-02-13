@@ -68,9 +68,9 @@ if(isset($_GET["msayfa"])){
         $app->Views['main']->assign('content',$app->Views['register']->text('main'));
         break;
         case 'menu':
-        $categories= $app->data_get("select * from menuler order by orderBy desc");
+        $menus= $app->data_get("select * from menuler order by orderBy desc");
 
-        while ($row = $app->data_fetch_array($categories)) {
+        while ($row = $app->data_fetch_array($menus)) {
             $menu[] = [
                 'id' => $row["id"],
                 'title' => $row["title"],
@@ -177,20 +177,34 @@ if(isset($_POST["list"])){
     $list=$_POST["list"];
     sirala($list);
 }
-if($_POST["menuKaydet"]){
-    $menuad=$_POST["menuAdi"];
-    $insert=$app->data_run("insert into menuler (title,status,orderBy,parent) values ('$menuad','1','1','0')");
-    if($insert){
-        $table=$app->data_get("select * from menuler order by id desc limit 1");
-        $row=$app->data_fetch_array($table);
-        $result["id"]=$row["id"];
-        $result["code"]=true;
-        $result["name"]=$menuad;
-    }else{
-        $result["code"]=false;
+if(isset($_POST["menuIslem"])){
+    if($_POST["menuId"]){
+        $id=$_POST["menuId"];
+        $menuad=$_POST["menuAdi"];
+        $update=$app->data_run("update menuler set title='$menuad' where id='$id'");
+        if($update==1){
+            $result["code"]=true;
+        }else{
+            $result["code"]=false;
+        }
+        echo json_encode($result);
+        exit();
     }
-    echo json_encode($result);
-    exit();
+    else{
+        $menuad=$_POST["menuAdi"];
+        $insert=$app->data_run("insert into menuler (title,status,orderBy,parent) values ('$menuad','1','1','0')");
+        if($insert){
+            $table=$app->data_get("select * from menuler order by id desc limit 1");
+            $row=$app->data_fetch_array($table);
+            $result["code"]=true;
+            $result["name"]=$menuad; //custom.js de 'add' fonksiyonuyla nestable menusune direk ekleyebilmek içindi
+        }else{
+            $result["code"]=false;
+        }
+        echo json_encode($result);
+        exit();
+    }
+
 }
 $app->EndPage();
 $app->Views['main']->parse('main.content');

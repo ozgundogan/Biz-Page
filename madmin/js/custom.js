@@ -12,7 +12,7 @@ $(function() {
             success: function(data) {
                 var priority = 'success';
                 var title    = 'Başarılı';
-                var message  = 'Sıralama başarılı';
+                var message  = 'Sıralama baaşrılı ama bu dokununca oldu';
                 $.toaster({ priority : priority, title : title, message : message });
             }
         });
@@ -20,6 +20,16 @@ $(function() {
 
     });
 });
+
+$('.dd').nestable({ /* config options */ });
+$('.dd').nestable('serialize');
+$('.dd').nestable({
+    callback: function(l,e){
+        // l is the main container
+        // e is the element that was moved
+    }
+});
+
 $('.editable').editable({
     mode: 'inline',
     type: 'number',
@@ -27,7 +37,14 @@ $('.editable').editable({
     min: '0.00',
     max: '24'
 });
-
+$('#menuModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var id = button.data('id')
+  var title=button.data('title')
+  var modal = $(this)
+  modal.find('[name=menuAdi]').val(title)
+  modal.find('[name=menuId]').val(id)
+})
 function readURL(input,id) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -41,7 +58,20 @@ function readURL(input,id) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $("[name=file_]").val(e.target.result);
+            $('#logoGoster').css('background-image', 'url('+e.target.result +')');
+            $('#logoGoster').hide();
+            $('#logoGoster').fadeIn(650);
+            $('#logoName').val(e.target.result)
 
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 function slideEdit(id,gorselName,siraName){
     $("#myForm").ajaxForm({
         type: 'post',
@@ -88,21 +118,13 @@ function slideSil(id,resimyolSil){
     })
 }
 
-$('.dd').nestable({ /* config options */ });
-$('.dd').nestable('serialize');
-$('.dd').nestable({
-    callback: function(l,e){
-        // l is the main container
-        // e is the element that was moved
-    }
-});
 var $a = $.a = a = {
     menu:{
         add:function(elem){
             var data = $(elem).serializeArray();
             $.post($(elem).attr('action'),data,function(res) {
                 if (res.code) {
-                    $('.dd').nestable('add', {"id":res.name});
+                    //$('.dd').nestable('add', {"id":res.name}); nestable a direk ekleme yapmak içindi
                     var priority = 'success';
                     var title    = 'Başarılı';
                     var message  = 'İşlem başarılı';
