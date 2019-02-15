@@ -13,7 +13,7 @@ $app->CreateView("register","user/register.tpl");
 $app->CreateView("blog","blog.tpl");
 $app->CreateView("menu","menu.tpl");
 $app->CreateView("createm","create-menu.tpl");
-$app->StartPage();
+
 $app->data_connect();
 //seo fonksiyonu
 function seo($text)
@@ -45,6 +45,8 @@ if(isset($_GET["msayfa"])){
             $app->Views['ana']->assign('resimyolsil',$slider['slider_resim']);
             $app->Views['ana']->parse("main.satirlar");
         }
+
+
         $app->Views['ana']->parse('main');
         $app->Views['main']->assign('content',$app->Views['ana']->text('main'));
         break;
@@ -89,33 +91,30 @@ if(isset($_GET["msayfa"])){
         $app->Views['main']->assign('content',$app->Views['createm']->text('main'));
         break;
         default:
+        $genel=$app->data_get("select * from genel");
+        while($row=$app->data_fetch_array($genel))
+        {
+            $app->Views['index']->assign('defaultGorsel',$row["logo_image"]);
+            $app->Views['index']->assign('slogan',$row["slogan"]);
+            $app->Views['index']->parse("main");
+        }
         $app->Views["index"]->parse("main");
         $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
         break;
     }
 }
 else{
+    $genel=$app->data_get("select * from genel");
+    while($row=$app->data_fetch_array($genel))
+    {
+        $app->Views['index']->assign('defaultGorsel',$row["logo_image"]);
+        $app->Views['index']->assign('logoName',$row["logo_image"]);
+        $app->Views['index']->assign('slogan',$row["slogan"]);
+        $app->Views['index']->parse("main");
+    }
     $app->Views["index"]->parse("main");
     $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
 }
-if(isset($_POST["sliderkaydet"])){
-
-    $id=$_POST["sliderid"];
-    $uploads_dir="images/uploads";
-    $temp_name=$_FILES['slidergorsel']['tmp_name'];
-    $resim_name=$_FILES['slidergorsel']['name'];
-    $slidersira=$_POST["slidersira"];
-    $resim_name=seo($resim_name);
-    $sliderresimyol=$uploads_dir."/".$resim_name;
-
-    @move_uploaded_file($temp_name,'$uploads_dir/$resim_name');
-
-    $slidersira=$_POST["slidersira"];
-    $kaydet=$app->data_run("update slider set slider_sira=$slidersira, slider_resim='$sliderresim' where slider_id=$id");
-
-    header("location:madmin/?msayfa=anasayfa");
-}
-
 if(isset($_POST["sliderduzenle"])){
     $array=array();
     $id=$_POST["id"];
@@ -134,7 +133,7 @@ if(isset($_POST["sliderduzenle"])){
 
     $sorgu="update slider set slider_sira='".$sliderorder."'";
     if($resim_name!=""){
-        $sorgu.= ", slider_resim='".$sliderresimyol."'";
+        $sorgu.= ", slider_resim='".$resim_name."'";
     }
     $sorgu.=" where slider_id='".$id."'";
     $kaydet=$app->data_run($sorgu);
@@ -206,6 +205,7 @@ if(isset($_POST["menuIslem"])){
     }
 
 }
+
 $app->EndPage();
 $app->Views['main']->parse('main.content');
 $app->Views['main']->parse('main');

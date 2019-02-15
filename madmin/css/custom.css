@@ -38,7 +38,15 @@
     height: 70px;
     background-position:center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+}
+.logoPreview{
+    width: 30%;
+    margin: 10px 0px;
+    height: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 label.btn.btn-gradient-danger{
     margin-bottom:-10px;

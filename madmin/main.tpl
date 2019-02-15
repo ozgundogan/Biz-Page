@@ -314,11 +314,11 @@
 <!-- plugins:js -->
 <script src="../lib/jquery/jquery-migrate.min.js"></script>
 <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="toaster/jquery.toaster.js"></script>
+
 
 <!-- for toaster -->
 
-
+<script src="toaster/jquery.toaster.js"></script>
 <!--[if IE]>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <![endif]-->
@@ -345,6 +345,7 @@
 <script src="http://malsup.github.com/jquery.form.js"></script>
 <script src="toaster/jquery.toaster.js"></script>
 <script src="../lib/nestable2/jquery.nestable.js"></script>
+<script src="{{get_asset('admin/js/plugins/jasny/jasny-bootstrap.min.js')}}"></script>
 <script src="js/custom.js"></script>
 </body>
 

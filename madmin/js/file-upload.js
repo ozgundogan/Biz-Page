@@ -1,8 +1,10 @@
 (function($) {
   'use strict';
   $(function() {
-    $('.file-upload-browse').on('click', function() {
+    $('.file-upload-browse').on('click', function(e) {
+        e.preventDefault();
       var file = $(this).parent().parent().parent().find('.file-upload-default');
+
       file.trigger('click');
     });
     $('.file-upload-default').on('change', function() {

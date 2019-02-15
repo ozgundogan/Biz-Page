@@ -6,21 +6,34 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <form class="forms-sample" wtx-context="6D99B247-F6EB-4791-8398-09190EB36A89">
+                            <form action="vendors/helper.php" class="forms-sample" onsubmit="$a.index.save(this); return false;" wtx-context="6D99B247-F6EB-4791-8398-09190EB36A89">
                                 <div class="form-group">
-                                    <label for="sloganName">Slogan</label>
-                                    <input type="text" name="slogan" class="form-control" id="sloganName" placeholder="Username" wtx-context="C36F8FE2-3E90-4FCF-A573-F59ED20EB34B">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p name="shooSlogan" value="{slogan}"><p/>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Slogan</label>
+                                            <input type="text" name="slogan" class="form-control" id="sloganName" placeholder="" value="{slogan}" wtx-context="C36F8FE2-3E90-4FCF-A573-F59ED20EB34B">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-md-3">
-                                        <div id="logoGoster" class="imagePreview" style="background-image:url('{defaultGorsel}');"></div>
-                                    </div>
-                                    <input name="img[]" class="file-upload-default" wtx-context="B42F52FE-A871-4AFA-83EB-68B1E33EC324" onchange="readURL(this);" id="logoLabel" accept=".png, .jpg, .jpeg" style="visibility:hidden;" type="file">
-                                    <div class="input-group col-xs-12">
-                                        <input type="text" id="logoName" class="form-control file-upload-info" disabled="" placeholder="Logo Seç" wtx-context="533B7DE9-CA51-4CA7-91A0-AC4949A96C50">
-                                        <span class="input-group-append">
-                                            <label for="logoLabel" class="btn btn-gradient-danger">Logo Yükle</label>
-                                        </span>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div id="logoGoster" class="logoPreview" style="background-image:url('images/uploads/{defaultGorsel}');"></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Logo:</label>
+                                            <input type="file" name="img"  onchange="readUrlLogo(this); return false;" id="fileimg" class="file-upload-default" wtx-context="E207EBCA-8A1D-47B8-899D-EAF4864380DB">
+                                            <input type="hidden" id="filee" name="file_" >
+                                            <div class="input-group col-xs-12">
+                                                <input type="text" class="form-control file-upload-info" disabled="" name="logoName" value="{logoName}" placeholder="" wtx-context="3C2B7945-9012-4B7B-B556-03BC5BB4A419">
+                                                <span class="input-group-append">
+                                                    <label class=" btn btn-gradient-primary" for="fileimg" style="height: 90%;">Seç</label>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
@@ -303,4 +316,7 @@
                     </div>
                 </div>
             </div>
+            <!-- CUSTOM js for this page -->
+            <script src="js/file-upload.js"></script>
+            <!-- end custom js -->
             <!-- END: main -->
