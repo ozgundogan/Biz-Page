@@ -149,12 +149,24 @@ var $a = $.a = a = {
     },
     lisItem: function(dizi,target){
       var output;
-      output=buildItem(dizi);
-      $('#parent').html(target);
+      $.each($dizi,function(index,item)){
+          output+=buildItem(item);
+      }
+      $(target).html(output);
     },
     buildItem: function(row){
-      html='<li class="dd-item" data-id="'row.id'">";
-      html='<li class="dd-item" data-id="'row.id'">";
+      if(row.children){
+        html='<li class="dd-item" data-id="'row.id'">";
+        html+='<li class="dd-item" data-id="'row.id'">";
+        html+='<li class="dd-item" data-id="'row.id'">";
+        html+='<li class="dd-item" data-id="'row.id'">";
+      }else{
+        html='<li class="dd-item" data-id="'row.id'">";
+        html+='<li class="dd-item" data-id="'row.id'">";
+        html+='<li class="dd-item" data-id="'row.id'">";
+        html+='<li class="dd-item" data-id="'row.id'">";
+      }
+
     }
   },
   index:{
