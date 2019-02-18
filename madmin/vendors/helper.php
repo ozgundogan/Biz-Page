@@ -51,3 +51,10 @@ if(isset($_POST["slogan"])){
     }
     echo json_encode($result);
 }
+if(isset($_POST['nestable'])){
+    $table=$app->data_get("select * from menuler");
+    while($row=$app->data_fecth_array($table)){
+
+    }
+
+}

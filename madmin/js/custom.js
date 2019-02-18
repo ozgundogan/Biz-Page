@@ -130,6 +130,20 @@ var $a = $.a = a = {
                     $.toaster({ priority : 'danger', title : 'Başarısız', message : 'İşlem başarısız' });
                 }
             },'json');
+        },
+        getMenus:function(){
+            var dizi=[];
+            $.ajax({
+                type: 'POST',
+                url: "vondors/helper.php",
+                data:{nestable:"ok"},
+                dataType:'json',
+                data:
+                success: function(data) {
+                    dizi=data.menuler;
+                }
+            });
+        });
         }
     },
     index:{
