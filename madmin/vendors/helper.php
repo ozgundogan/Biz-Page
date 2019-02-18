@@ -51,3 +51,9 @@ if(isset($_POST["slogan"])){
     }
     echo json_encode($result);
 }
+
+if(isset($_POST['mn'])){
+  $get=$app->data_get('select * from menuler');
+  $messages['menuler']=nestable($get,0);
+  echo json_encode($messages);
+}

@@ -505,8 +505,30 @@ if (!function_exists("has_children")) {
 		return false;
 	}
 }
-if(!function_exists("menu")){
 
+if(!function_exists('nestable')){
+	$result=[];
+	function nestable($rows,$parent=0){
+		foreach ($rows as $row) {
+			if(has_children($row,$row->id)){
+				$result=[
+					"title"=>$row->title,
+					"id"=>$row->id,
+					"children"=>nestable($rows,$row->id)
+				];
+			}else{
+				$result=[
+					"title"=>$row->title,
+					"id"=>$row->id,
+				];
+			}
+		}
+			return $result;
+	}
+
+}
+
+if(!function_exists("menu")){
 	function menu($rows, $parent = 0) {
 		if (is_array($rows)) {
 			$rows = json_decode(json_encode($rows));
@@ -547,6 +569,7 @@ if(!function_exists("menu")){
 		return $result;
 	}
 }
+
 if(!function_exists("altMenu")){
 	$sonuc='';
 	function altMenu($rows,$parent){
@@ -555,7 +578,7 @@ if(!function_exists("altMenu")){
 				$sonuc.='<a class="dropdown-item">'.$row->title.'</a>';
 			}
 		}
-			return $sonuc;
+		return $sonuc;
 	}
 }
 if(!function_exists("menuGoster")){
@@ -575,7 +598,7 @@ if(!function_exists("menuGoster")){
 				}else{
 					$result .= '<li class="nav-item">
 					<a class="nav-link"  href="#">'.$row->title.'</a>
-                    </li>';
+					</li>';
 				}
 			}
 		}
