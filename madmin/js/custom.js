@@ -157,9 +157,10 @@ var $a = $.a = a = {
     buildItem: function(row){
       if(row.children){
         html='<li class="dd-item" data-id="'row.id'">";
-        html+='<li class="dd-item" data-id="'row.id'">";
-        html+='<li class="dd-item" data-id="'row.id'">";
-        html+='<li class="dd-item" data-id="'row.id'">";
+        html+='<div class="dd-handle"><span class="label label-info"></span>'row.title'</div>';
+        html+='<div class="btn-group mb-0 regulated">';
+        html+='	<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.menu.status(this);" data-url="vendors/helper.php?id='.$row->id.'" value="'.$row->status.'"'.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
+				html+='<a data-toggle="modal" data-target="#menuModal" data-title="'.$row->title.'" data-id="'.$row->id.'" class="btn btn-xs btn-edit"><i class="fa fa-edit fa-lg"></i> Edit</a>'
       }else{
         html='<li class="dd-item" data-id="'row.id'">";
         html+='<li class="dd-item" data-id="'row.id'">";
