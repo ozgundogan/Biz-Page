@@ -12,7 +12,8 @@ $app->CreateView("edit","user/edit.tpl");
 $app->CreateView("register","user/register.tpl");
 $app->CreateView("blog","blog.tpl");
 $app->CreateView("menu","menu.tpl");
-$app->StartPage();
+$app->CreateView("createm","create-menu.tpl");
+
 $app->data_connect();
 //seo fonksiyonu
 function seo($text)
@@ -44,6 +45,8 @@ if(isset($_GET["msayfa"])){
             $app->Views['ana']->assign('resimyolsil',$slider['slider_resim']);
             $app->Views['ana']->parse("main.satirlar");
         }
+
+
         $app->Views['ana']->parse('main');
         $app->Views['main']->assign('content',$app->Views['ana']->text('main'));
         break;
@@ -67,9 +70,9 @@ if(isset($_GET["msayfa"])){
         $app->Views['main']->assign('content',$app->Views['register']->text('main'));
         break;
         case 'menu':
-        $categories= $app->data_get("select * from menuler order by orderBy desc");
+        $menus= $app->data_get("select * from menuler order by orderBy desc");
 
-        while ($row = $app->data_fetch_array($categories)) {
+        while ($row = $app->data_fetch_array($menus)) {
             $menu[] = [
                 'id' => $row["id"],
                 'title' => $row["title"],
@@ -83,34 +86,35 @@ if(isset($_GET["msayfa"])){
         $app->Views['menu']->parse('main');
         $app->Views['main']->assign('content',$app->Views['menu']->text('main'));
         break;
+        case 'createm':
+        $app->Views['createm']->parse('main');
+        $app->Views['main']->assign('content',$app->Views['createm']->text('main'));
+        break;
         default:
+        $genel=$app->data_get("select * from genel");
+        while($row=$app->data_fetch_array($genel))
+        {
+            $app->Views['index']->assign('defaultGorsel',$row["logo_image"]);
+            $app->Views['index']->assign('slogan',$row["slogan"]);
+            $app->Views['index']->parse("main");
+        }
         $app->Views["index"]->parse("main");
         $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
         break;
     }
 }
 else{
+    $genel=$app->data_get("select * from genel");
+    while($row=$app->data_fetch_array($genel))
+    {
+        $app->Views['index']->assign('defaultGorsel',$row["logo_image"]);
+        $app->Views['index']->assign('logoName',$row["logo_image"]);
+        $app->Views['index']->assign('slogan',$row["slogan"]);
+        $app->Views['index']->parse("main");
+    }
     $app->Views["index"]->parse("main");
     $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
 }
-if(isset($_POST["sliderkaydet"])){
-
-    $id=$_POST["sliderid"];
-    $uploads_dir="images/uploads";
-    $temp_name=$_FILES['slidergorsel']['tmp_name'];
-    $resim_name=$_FILES['slidergorsel']['name'];
-    $slidersira=$_POST["slidersira"];
-    $resim_name=seo($resim_name);
-    $sliderresimyol=$uploads_dir."/".$resim_name;
-
-    @move_uploaded_file($temp_name,'$uploads_dir/$resim_name');
-
-    $slidersira=$_POST["slidersira"];
-    $kaydet=$app->data_run("update slider set slider_sira=$slidersira, slider_resim='$sliderresim' where slider_id=$id");
-
-    header("location:madmin/?msayfa=anasayfa");
-}
-
 if(isset($_POST["sliderduzenle"])){
     $array=array();
     $id=$_POST["id"];
@@ -129,7 +133,7 @@ if(isset($_POST["sliderduzenle"])){
 
     $sorgu="update slider set slider_sira='".$sliderorder."'";
     if($resim_name!=""){
-        $sorgu.= ", slider_resim='".$sliderresimyol."'";
+        $sorgu.= ", slider_resim='".$resim_name."'";
     }
     $sorgu.=" where slider_id='".$id."'";
     $kaydet=$app->data_run($sorgu);
@@ -145,7 +149,6 @@ if(isset($_POST["sliderduzenle"])){
 if(isset($_POST["sid"])){
     $resimyol=$_POST["resimyol"];
     $sil=$app->data_run("delete from slider where slider_id=".$_POST['sid']."");
-    $slidersil = mysqli_query($baglanti, "delete from slider where slider_id='" . $_GET["slidesid"] . "'");
     if ($sil) {
         unlink("$resimyol");
         $array["durum"]=true;
@@ -163,7 +166,6 @@ function sirala($list, $parent_id = 0, & $m_order = 0)
         $m_order++;
         $update=$ap->data_run("update menuler set orderBy=".$m_order.", parent=".$parent_id." where id='".$item["id"]."'");
         if($update){
-            exit();
             if (array_key_exists("children", $item)) {
                 sirala($item["children"], $item["id"], $m_order);
             }
@@ -173,6 +175,35 @@ function sirala($list, $parent_id = 0, & $m_order = 0)
 if(isset($_POST["list"])){
     $list=$_POST["list"];
     sirala($list);
+}
+if(isset($_POST["menuIslem"])){
+    if($_POST["menuId"]){
+        $id=$_POST["menuId"];
+        $menuad=$_POST["menuAdi"];
+        $update=$app->data_run("update menuler set title='$menuad' where id='$id'");
+        if($update==1){
+            $result["code"]=true;
+        }else{
+            $result["code"]=false;
+        }
+        echo json_encode($result);
+        exit();
+    }
+    else{
+        $menuad=$_POST["menuAdi"];
+        $insert=$app->data_run("insert into menuler (title,status,orderBy,parent) values ('$menuad','1','1','0')");
+        if($insert){
+            $table=$app->data_get("select * from menuler order by id desc limit 1");
+            $row=$app->data_fetch_array($table);
+            $result["code"]=true;
+            $result["name"]=$menuad; //custom.js de 'add' fonksiyonuyla nestable menusune direk ekleyebilmek içindi
+        }else{
+            $result["code"]=false;
+        }
+        echo json_encode($result);
+        exit();
+    }
+
 }
 
 $app->EndPage();

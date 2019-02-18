@@ -33,11 +33,20 @@
     -moz-osx-font-smoothing: grayscale;
 }
 .imagePreview{
+    margin: 10px 0px;
     width: 130%;
     height: 70px;
     background-position:center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+}
+.logoPreview{
+    width: 30%;
+    margin: 10px 0px;
+    height: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 label.btn.btn-gradient-danger{
     margin-bottom:-10px;
@@ -73,4 +82,20 @@ table td{
     float: right;
     top: -35px;
     height: 30px;
+}
+.btn-edit{
+    background-color:#fe7c96;
+    color:#fff !important;
+}
+.btn-edit:hover{
+    background-color:#fed713;
+    color:#fff;
+}
+.btn-delete{
+    background-color:#fed713;
+    color:#fff;
+}
+.btn-delete:hover{
+    background-color:#fe7c96;
+    color:#fff;
 }

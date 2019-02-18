@@ -28,7 +28,7 @@
                   <td>{sliderid}</td>
                   <input value="{sliderid}" type="hidden">
                   <td><input type="number" name="slidersira{sliderid}" value='{slidersira}' style="width:30px;"></td>
-                  <td><div id="ad-{resimgoster}" class="imagePreview" style="background-image:url('{defaultGorsel}');"></div></td>
+                  <td><div id="ad-{resimgoster}" class="imagePreview" style="background-image:url('images/uploads/{defaultGorsel}');"></div></td>
                   <td>
                     <label for="{resimgoster}" class="btn btn-gradient-danger">Resim Seç</label>
                     <input name="slidergorsel{resimgoster}" onchange="readURL(this,'ad-{resimgoster}');" id="{resimgoster}" accept=".png, .jpg, .jpeg" style="visibility:hidden;" type="file">
@@ -43,7 +43,6 @@
                 <!-- END: satirlar-->
               </tbody>
             </table>
-            <input type="submit" name="sliderkaydet" class="btn btn-gradient-danger" style="margin:1em;visibility:hidden">
           </div>
         </div>
       </div>

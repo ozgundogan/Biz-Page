@@ -521,9 +521,9 @@ if(!function_exists("menu")){
 					</div>
 
 					<div class="btn-group mb-0 regulated">
-					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.language.status(this);" data-url="category/status/'.$row->id.'" value="'.$row->status.'"'.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
-					<a href="category/status/'.$row->id.'" data-toggle="modal" data-target="#remoteModal" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-lg"></i> Edit</a>
-					<a href="category/status/'.$row->id.'" class="btn btn-xs btn-danger" onclick="$a.language.delete(this); return false;"><i class="fa fa-lg fa-trash"></i> Delete</a>
+					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.menu.status(this);" data-url="vendors/helper.php?id='.$row->id.'" value="'.$row->status.'"'.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
+					<a data-toggle="modal" data-target="#menuModal" data-title="'.$row->title.'" data-id="'.$row->id.'" class="btn btn-xs btn-edit"><i class="fa fa-edit fa-lg"></i> Edit</a>
+					<a href="menu/delete/'.$row->id.'" class="btn btn-xs btn-delete" onclick="$a.menu.delete(this); return false;"><i class="fa fa-lg fa-trash"></i> Delete</a>
 					</div>
 
 					<ol class="dd-list">';
@@ -536,11 +536,46 @@ if(!function_exists("menu")){
 					</div>
 
 					<div class="btn-group mb-0 regulated">
-					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.language.status(this);" data-url="category/status/" value="'.$row->status.'" '.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
-					<a href="category/status/'.$row->id.'" data-toggle="modal" data-target="#remoteModal" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-lg"></i> Edit</a>
-					<a href="category/status/'.$row->id.'" class="btn btn-xs btn-danger" onclick="$a.category.delete(this); return false;"><i class="fa fa-lg fa-trash"></i> Delete</a>
+					<div class=" btn btn-xs switch"><div class="onoffswitch"><input type="checkbox" onchange="$a.menu.status(this);" data-url="vendors/helper.php?id='.$row->id.'" value="'.$row->status.'" '.($row->status == 1 ? 'checked' : '').' class="onoffswitch-checkbox" id="example'.$row->id.'"><label class="onoffswitch-label" for="example'.$row->id.'"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div>
+					<a data-toggle="modal" data-target="#menuModal" data-title="'.$row->title.'" data-id="'.$row->id.'" class="btn btn-xs btn-edit"><i class="fa fa-edit fa-lg"></i> Edit</a>
+					<a href="menu/delete/'.$row->id.'" class="btn btn-xs btn-delete" onclick="$a.menu.delete(this); return false;"><i class="fa fa-lg fa-trash"></i> Delete</a>
 					</div>
 					</li>';
+				}
+			}
+		}
+		return $result;
+	}
+}
+if(!function_exists("altMenu")){
+	$sonuc='';
+	function altMenu($rows,$parent){
+		foreach($rows as $row){
+			if ( $row->parent == $parent) {
+				$sonuc.='<a class="dropdown-item">'.$row->title.'</a>';
+			}
+		}
+			return $sonuc;
+	}
+}
+if(!function_exists("menuGoster")){
+	function menuGoster($rows, $parent = 0) {
+		if (is_array($rows)) {
+			$rows = json_decode(json_encode($rows));
+		}
+		$result = '';
+		foreach ($rows as $row) {
+			if ( $row->parent == $parent) {
+				if (has_children($rows, $row->id)) {
+					$result .= '<li class="nav-item dropdown">
+					<a class="nav-link normal js-scroll dropdown-toggle"  href="#" id='.$row->title.' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$row->title.'</a>
+					<div class="dropdown-menu" aria-labelledby='.$row->title.'>';
+					$result .= altMenu($rows, $row->id);
+					$result .= "</div></li>";
+				}else{
+					$result .= '<li class="nav-item">
+					<a class="nav-link"  href="#">'.$row->title.'</a>
+                    </li>';
 				}
 			}
 		}

@@ -24,8 +24,6 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-
-
   <!-- inj1ect:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
@@ -33,8 +31,8 @@
   <!-- x-editable -->
   <link rel="stylesheet" href="editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
   <!--  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/> -->
-  <link rel="stylesheet" href="css/custom.css"/>
   <link rel="stylesheet" href="../lib/nestable2/jquery.nestable.css"/>
+  <link rel="stylesheet" href="css/custom.css"/>
   <script src="../lib/jquery/jquery.min.js"></script>
   <!--<![endif]-->
 
@@ -316,11 +314,11 @@
 <!-- plugins:js -->
 <script src="../lib/jquery/jquery-migrate.min.js"></script>
 <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="toaster/jquery.toaster.js"></script>
+
 
 <!-- for toaster -->
 
-
+<script src="toaster/jquery.toaster.js"></script>
 <!--[if IE]>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <![endif]-->
@@ -347,6 +345,7 @@
 <script src="http://malsup.github.com/jquery.form.js"></script>
 <script src="toaster/jquery.toaster.js"></script>
 <script src="../lib/nestable2/jquery.nestable.js"></script>
+<script src="{{get_asset('admin/js/plugins/jasny/jasny-bootstrap.min.js')}}"></script>
 <script src="js/custom.js"></script>
 </body>
 
