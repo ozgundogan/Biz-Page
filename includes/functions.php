@@ -505,34 +505,30 @@ if (!function_exists("has_children")) {
 		return false;
 	}
 }
-if(!function_exists("nestable")){
 
+if(!function_exists('nestable')){
+	$result=[];
 	function nestable($rows,$parent=0){
-		$menuler=[];
-		if(is_array($rows)){
-			$rows=json_decode(json_encode($rows));
-		}
-		foreach($rows as $row){
-			if(has_children($rows,$row->id)){
-				$menuler=[
+		foreach ($rows as $row) {
+			if(has_children($row,$row->id)){
+				$result=[
 					"title"=>$row->title,
 					"id"=>$row->id,
 					"children"=>nestable($rows,$row->id)
 				];
-			}
-			else{
-				$menuler=[
+			}else{
+				$result=[
 					"title"=>$row->title,
 					"id"=>$row->id,
-					"children"=>nestable($rows,$row->id)
 				];
 			}
 		}
-		echo json_encode($menuler) ;
+			return $result;
 	}
-}
-if(!function_exists("menu")){
 
+}
+
+if(!function_exists("menu")){
 	function menu($rows, $parent = 0) {
 		if (is_array($rows)) {
 			$rows = json_decode(json_encode($rows));
@@ -573,7 +569,7 @@ if(!function_exists("menu")){
 		return $result;
 	}
 }
-// alt menu ve menugoster fonksiyonu ekrana menuleri basarken kullandık
+
 if(!function_exists("altMenu")){
 	$sonuc='';
 	function altMenu($rows,$parent){

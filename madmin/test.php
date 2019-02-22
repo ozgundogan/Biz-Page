@@ -206,7 +206,7 @@ if(isset($_POST["menuIslem"])){
 
 }
 
-$app->EndPage();
+
 $app->Views['main']->parse('main.content');
 $app->Views['main']->parse('main');
 $app->Views['main']->out('main');
