@@ -52,8 +52,21 @@ if(isset($_POST["slogan"])){
     echo json_encode($result);
 }
 
-if(isset($_POST['mn'])){
-  $get=$app->data_get('select * from menuler');
-  $messages['menuler']=nestable($get,0);
-  echo json_encode($messages);
+if(isset($_POST["nm"])){
+    $rows=[];
+    $get=$app->data_get('select * from menuler');
+
+    while($g=$app->data_fetch_array($get))
+    {
+        $rows[]=[
+            "title"  => $g["title"],
+            "status" => $g["status"],
+            "id"     => $g["id"],
+            "parent" => $g["parent"],
+            "orderBy"=> $g["orderBy"]
+        ];
+    }
+
+    $messages['menuler']=nestable($rows,0);
+    echo json_encode($messages);
 }

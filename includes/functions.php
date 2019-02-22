@@ -496,9 +496,9 @@ if(!function_exists("sirala")){
 }
 
 if (!function_exists("has_children")) {
-	function has_children($rows,$id){
+	function has_children($rows,$parent){
 		foreach ($rows as $row) {
-			if ($row->parent == $id) {
+			if ($row["parent"] == $parent) {
 				return true;
 			}
 		}
@@ -506,26 +506,28 @@ if (!function_exists("has_children")) {
 	}
 }
 
-if(!function_exists('nestable')){
-	$result=[];
+if(!function_exists("nestable")){
 	function nestable($rows,$parent=0){
+		$result=[];
 		foreach ($rows as $row) {
-			if(has_children($row,$row->id)){
-				$result=[
-					"title"=>$row->title,
-					"id"=>$row->id,
-					"children"=>nestable($rows,$row->id)
-				];
-			}else{
-				$result=[
-					"title"=>$row->title,
-					"id"=>$row->id,
-				];
+			if ($row["parent"] == $parent) {
+				if(has_children($rows, $row["id"])){
+					$result[]=[
+						"title"    => $row["title"],
+						"id"       => $row["id"],
+						"children" => nestable($rows,$row["id"])
+					];
+				}else{
+					$result[] = [
+						"title" => $row["title"],
+						"id"    => $row["id"],
+					];
+				}
 			}
 		}
-			return $result;
-	}
 
+		return $result;
+	}
 }
 
 if(!function_exists("menu")){
@@ -570,34 +572,23 @@ if(!function_exists("menu")){
 	}
 }
 
-if(!function_exists("altMenu")){
-	$sonuc='';
-	function altMenu($rows,$parent){
-		foreach($rows as $row){
-			if ( $row->parent == $parent) {
-				$sonuc.='<a class="dropdown-item">'.$row->title.'</a>';
-			}
-		}
-		return $sonuc;
-	}
-}
 if(!function_exists("menuGoster")){
 	function menuGoster($rows, $parent = 0) {
-		if (is_array($rows)) {
-			$rows = json_decode(json_encode($rows));
-		}
 		$result = '';
 		foreach ($rows as $row) {
-			if ( $row->parent == $parent) {
-				if (has_children($rows, $row->id)) {
-					$result .= '<li class="nav-item dropdown">
-					<a class="nav-link normal js-scroll dropdown-toggle"  href="#" id='.$row->title.' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$row->title.'</a>
-					<div class="dropdown-menu" aria-labelledby='.$row->title.'>';
-					$result .= altMenu($rows, $row->id);
-					$result .= "</div></li>";
+			if ( $row['parent'] == $parent) {
+				if (has_children($rows, $row['id'])) {
+					$result.= '<li class="nav-item dropdown">';
+					$result.= '<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+					$result.= $row["title"];
+					$result.= '</a>';
+					$result.= '<ul class="dropdown-menu">';
+					$result.= menuGoster($rows,$row["id"]);
+					$result.= '</ul>';
+					$result.= '</li>';
 				}else{
 					$result .= '<li class="nav-item">
-					<a class="nav-link"  href="#">'.$row->title.'</a>
+					<a class="nav-link"  href="#">'.$row['title'].'</a>
 					</li>';
 				}
 			}

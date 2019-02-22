@@ -70,19 +70,18 @@ if(isset($_GET["msayfa"])){
         $app->Views['main']->assign('content',$app->Views['register']->text('main'));
         break;
         case 'menu':
-        $menus= $app->data_get("select * from menuler order by orderBy desc");
-
-        while ($row = $app->data_fetch_array($menus)) {
-            $menu[] = [
-                'id' => $row["id"],
-                'title' => $row["title"],
-                'parent' => $row["parent"],
-                'status' => $row["status"]
-            ];
-        }
-
-        $result= menu($menu,0);
-        $app->Views['menu']->assign('menuler',$result);
+        // $menus= $app->data_get("select * from menuler order by orderBy desc");
+        //
+        // while ($row = $app->data_fetch_array($menus)) {
+        //     $menu[] = [
+        //         'id' => $row["id"],
+        //         'title' => $row["title"],
+        //         'parent' => $row["parent"],
+        //         'status' => $row["status"]
+        //     ];
+        // }
+        // $result= menu($menu,0);
+        // $app->Views['menu']->assign('menuler',$result);
         $app->Views['menu']->parse('main');
         $app->Views['main']->assign('content',$app->Views['menu']->text('main'));
         break;
@@ -205,7 +204,17 @@ if(isset($_POST["menuIslem"])){
     }
 
 }
-
+if(isset($_POST['menuSil'])){
+    $id=$_POST['menuSil'];
+    $delete=$app->data_run("delete from menuler where id='$id'");
+    if($delete){
+        $messages['code']=true;
+    }else{
+        $messages['code']=false;;
+    }
+    echo json_encode($messages);
+    exit();
+}
 
 $app->Views['main']->parse('main.content');
 $app->Views['main']->parse('main');

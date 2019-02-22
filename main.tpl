@@ -103,7 +103,7 @@
 
 <script src="js/main.js"></script>
 <script src="https://gitcdn.xyz/repo/thesmart/jquery-scrollspy/0.1.3/scrollspy.js"></script>
-<script>
+<script type="text/javascript">
 
 window.addEventListener('scroll', function(e) {
 
@@ -114,6 +114,7 @@ window.addEventListener('scroll', function(e) {
     }
 
 });
+
 </script>
 </body>
 </html>

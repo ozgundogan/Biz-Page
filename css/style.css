@@ -534,8 +534,6 @@ a:hover {
     visibility: visible !important;
     background-color: #f8f9fa;
     border-radius: 4px;
-    display: flex;
-    flex-direction: row;
 }
 
 .navbar-b .dropdown-menu {

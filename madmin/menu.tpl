@@ -10,7 +10,6 @@
                 </div>
                 <div class="dd">
                     <ol class="dd-list">
-                        {menuler}
                     </ol>
                 </div>
             </div>
@@ -43,4 +42,26 @@
         </div>
     </div>
 </div>
+<script type="text/JavaScript">
+$(document).ready(function(){
+        $a.menu.listItem($a.menu.getMenus(),'.dd-list');
+
+        $('.dd').nestable({
+            group: 1
+        }).on('change',function() {
+            $.ajax({
+                type: 'POST',
+                url: "test.php",
+                data: {
+                    list: $(this).nestable('serialize')
+                },
+                success: function(data) {
+                    $.toaster({ priority : 'success', title : 'Başarılı', message :' İşlem başarılı' });
+                }
+            });
+            console.log($(this).nestable('serialize'));
+
+        });
+    });
+</script>
 <!--END: main -->

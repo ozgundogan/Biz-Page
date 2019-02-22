@@ -52,15 +52,17 @@ if(isset($_GET['sayfa'])){
 }  else{
     $sliders=$app->data_get("select * from slider order by slider_sira asc");
     $menus=$app->data_get("select * from menuler");
-    while ($row = $app->data_fetch_array($menus)) {
-        $menu[] = [
-            'id' => $row["id"],
-            'title' => $row["title"],
-            'parent' => $row["parent"],
-            'status' => $row["status"]
+    while($menu=$app->data_fetch_array($menus))
+    {
+        $rows[] =[
+            'id'     => $menu["id"],
+            'parent' => $menu["parent"],
+            'title'  => $menu["title"],
         ];
     }
-    $result= menuGoster($menu,0);
+    $result= menuGoster($rows,0);
+// print_r($result);
+// exit();
     $app->Views['main']->assign('menuolustur',$result);
     while($slider=$app->data_fetch_array($sliders))
     {

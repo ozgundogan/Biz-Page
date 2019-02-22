@@ -83,19 +83,11 @@ table td{
     top: -35px;
     height: 30px;
 }
-.btn-edit{
+ .btn-edit,.btn-delete:hover {
     background-color:#fe7c96;
     color:#fff !important;
 }
-.btn-edit:hover{
+.btn-delete,.btn-edit:hover{
     background-color:#fed713;
-    color:#fff;
-}
-.btn-delete{
-    background-color:#fed713;
-    color:#fff;
-}
-.btn-delete:hover{
-    background-color:#fe7c96;
-    color:#fff;
+    color:#fff !important;
 }
