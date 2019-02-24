@@ -307,9 +307,6 @@
       <!--[if !IE]>-->
 
       <script src="jquery.toaster.js"></script>
-      <script>
-
-      </script>
 
 <!-- plugins:js -->
 <script src="../lib/jquery/jquery-migrate.min.js"></script>

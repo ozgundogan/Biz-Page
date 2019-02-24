@@ -35,7 +35,6 @@ if(isset($_GET["msayfa"])){
         case 'anasayfa':
 
         $deg=$app->data_get("select * from slider order by slider_id asc");
-
         while($slider=$app->data_fetch_array($deg))
         {
             $app->Views['ana']->assign('sliderid',$slider["slider_id"]);
@@ -90,7 +89,7 @@ if(isset($_GET["msayfa"])){
         $app->Views['main']->assign('content',$app->Views['createm']->text('main'));
         break;
         default:
-        $genel=$app->data_get("select * from genel");
+        $genel=$app->data_get("select * from genel where id=1");
         while($row=$app->data_fetch_array($genel))
         {
             $app->Views['index']->assign('defaultGorsel',$row["logo_image"]);
@@ -103,7 +102,7 @@ if(isset($_GET["msayfa"])){
     }
 }
 else{
-    $genel=$app->data_get("select * from genel");
+    $genel=$app->data_get("select * from genel where id=1");
     while($row=$app->data_fetch_array($genel))
     {
         $app->Views['index']->assign('defaultGorsel',$row["logo_image"]);
@@ -115,7 +114,7 @@ else{
     $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
 }
 if(isset($_POST["sliderduzenle"])){
-    $array=array();
+
     $id=$_POST["id"];
     $gorselname=$_POST["gorselname"];
     $siraname=$_POST["siraname"];
@@ -150,12 +149,13 @@ if(isset($_POST["sid"])){
     $sil=$app->data_run("delete from slider where slider_id=".$_POST['sid']."");
     if ($sil) {
         unlink("$resimyol");
-        $array["durum"]=true;
+        $array['durum']=true;
     }
     else{
-        $array["durum"]=false;
+        $array['durum']=false;
     }
-    echo json_encode($array);
+    echo json_encode($array) ;
+    exit();
 }
 function sirala($list, $parent_id = 0, & $m_order = 0)
 {

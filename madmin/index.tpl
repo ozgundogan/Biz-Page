@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <form action="vendors/helper.php" class="forms-sample" onsubmit="$a.index.save(this); return false;" wtx-context="6D99B247-F6EB-4791-8398-09190EB36A89">
+                            <form id="indexForm" action="vendors/helper.php" class="forms-sample" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -26,7 +26,7 @@
                                         <div class="col-sm-6">
                                             <label>Logo:</label>
                                             <input type="file" name="img"  onchange="readUrlLogo(this); return false;" id="fileimg" class="file-upload-default" wtx-context="E207EBCA-8A1D-47B8-899D-EAF4864380DB">
-                                            <input type="hidden" id="filee" name="file_" >
+                                            <input type="hidden" name="file_" >
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info" disabled="" name="logoName" value="{logoName}" placeholder="" wtx-context="3C2B7945-9012-4B7B-B556-03BC5BB4A419">
                                                 <span class="input-group-append">
@@ -36,7 +36,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                                <button type="submit" onclick="$a.index.save();-" class="btn btn-gradient-primary mr-2">Kaydet</button>
                             </form>
                         </div>
                     </div>
