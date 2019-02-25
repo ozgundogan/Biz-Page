@@ -1,6 +1,6 @@
 <!--BEGIN: main -->
 <div class="main-panel">
-  <form id="myForm" action="test.php" method="POST" enctype="multipart/form-data">
+  <form id="myForm"  enctype="multipart/form-data">
     <div class="content-wrapper">
       <div class="col-md-12 grid-margin stretch-card">
         <div class="card">

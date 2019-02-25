@@ -342,7 +342,6 @@
 <script src="http://malsup.github.com/jquery.form.js"></script>
 <script src="toaster/jquery.toaster.js"></script>
 <script src="../lib/nestable2/jquery.nestable.js"></script>
-<script src="{{get_asset('admin/js/plugins/jasny/jasny-bootstrap.min.js')}}"></script>
 <script src="js/custom.js"></script>
 </body>
 

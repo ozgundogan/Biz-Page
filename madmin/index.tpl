@@ -6,23 +6,20 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <form id="indexForm" action="vendors/helper.php" class="forms-sample" method="POST" enctype="multipart/form-data">
+                            <form id="indexForm" class="forms-sample" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p name="shooSlogan" value="{slogan}"><p/>
-                                        </div>
-                                        <div class="col-sm-6">
                                             <label>Slogan</label>
                                             <input type="text" name="slogan" class="form-control" id="sloganName" placeholder="" value="{slogan}" wtx-context="C36F8FE2-3E90-4FCF-A573-F59ED20EB34B">
+                                        </div>
+                                        <div class="col-sm-6">
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-sm-6">
-                                            <div id="logoGoster" class="logoPreview" style="background-image:url('images/uploads/{defaultGorsel}');"></div>
-                                        </div>
                                         <div class="col-sm-6">
                                             <label>Logo:</label>
                                             <input type="file" name="img"  onchange="readUrlLogo(this); return false;" id="fileimg" class="file-upload-default" wtx-context="E207EBCA-8A1D-47B8-899D-EAF4864380DB">
@@ -34,9 +31,12 @@
                                                 </span>
                                             </div>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <div id="logoGoster" class="logoPreview" style="background-image:url('images/uploads/{defaultGorsel}');"></div>
+                                        </div>
                                     </div>
                                 </div>
-                                <button type="submit" onclick="$a.index.save();-" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                                <button onclick="save(this);" class="btn btn-gradient-primary mr-2">Kaydet</button>
                             </form>
                         </div>
                     </div>
@@ -318,5 +318,6 @@
             </div>
             <!-- CUSTOM js for this page -->
             <script src="js/file-upload.js"></script>
+
             <!-- end custom js -->
             <!-- END: main -->
