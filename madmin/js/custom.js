@@ -88,7 +88,6 @@ function slideSil(id,resimyolSil){
 }
 function save(elem){
     var slogan=$("#sloganName").val();
-    console.log(slogan);
     $("#indexForm").ajaxForm({
         type: 'post',
         url :'vendors/helper.php',

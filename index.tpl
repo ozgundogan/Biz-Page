@@ -20,7 +20,7 @@
       </div>
       <!-- BEGIN: slider -->
       <div class="carousel-item">
-        <div class="intro bg-image" style ="background-image:url(madmin/{img}) ">
+        <div class="intro bg-image" style ="background-image:url(madmin/images/uploads/{img}) ">
         </div>
       </div>
       <!-- END: slider -->
@@ -36,7 +36,7 @@
     <div class=" table-cell">
       <div class="container constant-width">
         <!--<p class="display-6 color-d">Hello, world!</p>-->
-        <h1 class="intro-title mb-4">Düşüncelerini hayata geçiren ekip.</h1>
+        <h1 class="intro-title mb-4">{slogan}</h1>
         <p class="intro-subtitle"><span class="text-slider-items">Process,Build Engine,Solutions,Inovation,Graphical View</span><strong class="text-slider"></strong></p>
         <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
       </div>

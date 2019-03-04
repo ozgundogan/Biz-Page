@@ -17,25 +17,24 @@ if(isset($_POST["status"])){
     }
     echo json_encode($result);
 }
+
 if(isset($_POST["slogan"])){
 
     $slogan=$_POST["slogan"];
-    if(isset($_POST['img'])){
+    $image=$_FILES['img'];
+    if($image){
         $tmp_name=$_FILES['img']['tmp_name'];
-        $img_name=$_FILES['img']['name'];
+        $type=explode('/',$_FILES['img']['type']);
         $rnd=rand(1,1000);
-        $file = 'images/uploads/'.$rnd.'.'.$type[0];
-        @move_uploaded_file($tmp_name, "$file");
-        $slogan=$_POST["slogan"];
-        $img=$_FILES["img"];
+        $uploads_dir="../images/uploads";
+        $name=$rnd.'.'.$type[1];
+        @move_uploaded_file($tmp_name, "$uploads_dir/$name");
     }
     $sorgu="update genel set slogan='".$slogan."'";
-    if($img_name){
-        $sorgu.=", logo_image='".$img_name."'";
+    if($image){
+        $sorgu.=", logo_image='".$rnd.".".$type[1]."'";
     }
     $sorgu.=" where id=1";
-    print_r($sorgu);
-    exit();
     $update=$app->data_run($sorgu);
     if($update){
         $result=true;
