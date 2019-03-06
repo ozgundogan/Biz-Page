@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="css/sweetalert.css">
   <!-- endinject -->
   <!-- Bootstrap CSS File -->
   <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -306,7 +307,6 @@
 
       <!--[if !IE]>-->
 
-      <script src="jquery.toaster.js"></script>
 
 <!-- plugins:js -->
 <script src="../lib/jquery/jquery-migrate.min.js"></script>
@@ -340,6 +340,7 @@
 
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>-->
 <script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="js/sweetalert.min.js"></script>
 <script src="toaster/jquery.toaster.js"></script>
 <script src="../lib/nestable2/jquery.nestable.js"></script>
 <script src="js/custom.js"></script>
