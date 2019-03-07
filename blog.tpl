@@ -58,7 +58,7 @@
                 <h6 class="category">Web Design {blogdetay} </h6>
               </div>
             </div>
-            <h3 class="card-title"><a href="blogdetail/".blogdetay>See more ideas about Travel</a></h3>
+            <h3 class="card-title"><a href="blogdetail/{blogdetay}">See more ideas about Travel</a></h3>
             <p class="card-description">
               Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
               a pellentesque nec,
