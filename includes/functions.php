@@ -515,12 +515,16 @@ if(!function_exists("nestable")){
 					$result[]=[
 						"title"    => $row["title"],
 						"id"       => $row["id"],
+						"page" => $row['page'],
+						"link"=>$row['link'],
 						"children" => nestable($rows,$row["id"])
 					];
 				}else{
 					$result[] = [
 						"title" => $row["title"],
 						"id"    => $row["id"],
+						"page" => $row['page'],
+						"link"=>$row['link']
 					];
 				}
 			}
@@ -579,7 +583,7 @@ if(!function_exists("menuGoster")){
 			if ( $row['parent'] == $parent) {
 				if (has_children($rows, $row['id'])) {
 					$result.= '<li class="nav-item dropdown">';
-					$result.= '<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+					$result.= '<a class="nav-link dropdown-toggle" href="'.$row['page'].'" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 					$result.= $row["title"];
 					$result.= '</a>';
 					$result.= '<ul class="dropdown-menu">';
@@ -588,7 +592,7 @@ if(!function_exists("menuGoster")){
 					$result.= '</li>';
 				}else{
 					$result .= '<li class="nav-item">
-					<a class="nav-link"  href="#">'.$row['title'].'</a>
+					<a class="nav-link"  href="'.$row['page'].'">'.$row['title'].'</a>
 					</li>';
 				}
 			}
@@ -598,11 +602,12 @@ if(!function_exists("menuGoster")){
 }
 
 function slug($str) {
-    $search = array('Ș', 'Ț', 'ş', 'ţ', 'Ş', 'Ţ', 'ș', 'ț', 'î', 'â', 'ă', 'Î', 'Â', 'Ă', 'ë', 'Ë');
-    $replace = array('s', 't', 's', 't', 's', 't', 's', 't', 'i', 'a', 'a', 'i', 'a', 'a', 'e', 'E');
-    $str = str_ireplace($search, $replace, strtolower(trim($str)));
-    $str = preg_replace('/[^\w\d\-\ ]/', '', $str);
-    $str = str_replace(' ', '-', $str);
-    return preg_replace('/\-{2,}', '-', $str);
+	$search = array('Ș', 'Ț', 'ş', 'ţ', 'Ş', 'Ţ', 'ș', 'ț', 'î', 'â', 'ă', 'Î', 'Â', 'Ă', 'ë', 'Ë');
+	$replace = array('s', 't', 's', 't', 's', 't', 's', 't', 'i', 'a', 'a', 'i', 'a', 'a', 'e', 'E');
+	$str = str_replace($search, $replace, strtolower(trim($str)));
+	$str = preg_replace('/[^\w\d\-\ ]/', '', $str);
+	$str = str_replace(' ', '-', $str);
+	$str = preg_replace('/\-{2,}', '-', $str);
+	return $str;
 }
 ?>

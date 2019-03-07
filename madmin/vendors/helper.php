@@ -56,7 +56,9 @@ if(isset($_POST["nest"])){
             "status" => $g["status"],
             "id"     => $g["id"],
             "parent" => $g["parent"],
-            "orderBy"=> $g["orderBy"]
+            "orderBy"=> $g["orderBy"],
+            "page"=>$g["page"],
+            "link" => $g["link"]
         ];
     }
 

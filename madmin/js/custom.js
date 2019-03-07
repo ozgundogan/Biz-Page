@@ -21,9 +21,11 @@ $('#menuModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var id = button.data('id')
   var title=button.data('title')
+  var page=button.data('page')
   var modal = $(this)
   modal.find('[name=menuAdi]').val(title)
   modal.find('[name=menuId]').val(id)
+  modal.find('select[name=page]').val(page)
   $a.menu.listItem($a.menu.getMenus($))
 })
 function readURL(input,id) {
@@ -34,7 +36,6 @@ function readURL(input,id) {
       $('#'+id).css('background-image', 'url('+e.target.result +')');
       $('#'+id).hide();
       $('#'+id).fadeIn(650);
-
     }
     reader.readAsDataURL(input.files[0]);
   }
@@ -116,8 +117,7 @@ var $a = $.a = a = {
           $('body').removeClass('modal-open');
           $('.modal-backdrop').remove();
         }else{
-          $.toaster({ priority : 'danger', title : 'Başarısız', message : 'İşlem başarısız' });
-          $('#menuModal').modal('hide');
+          $.toaster({ priority : 'danger', title : 'Başarısız', message : res.text });
         }
       },'json');
       $a.menu.listItem($a.menu.getMenus(),'.dd-list');
@@ -130,7 +130,7 @@ var $a = $.a = a = {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, change !'
+        confirmButtonText: 'Evet,sil!'
       }).then((result) => {
         if (result) {
           var id=$(elem).data('id');
@@ -187,7 +187,7 @@ var $a = $.a = a = {
       html="<li class='dd-item' data-id='"+row.id+"''>";
       html+="<div class='dd-handle'>"+row.title+"</div>";
       html+="<div class='btn-group mb-0 regulated'>";
-      html += "<a data-toggle='modal' data-target='#menuModal' data-id='"+row.id+"' data-title='"+row.title+"' class='btn btn-xs btn-edit'><i class='fa fa-edit fa-lg'></i> Düzenle</a>";
+      html += "<a data-toggle='modal' data-target='#menuModal' data-id='"+row.id+"' data-title='"+row.title+"' data-page='"+row.page+"' class='btn btn-xs btn-edit'><i class='fa fa-edit fa-lg'></i> Düzenle</a>";
       html += "<a href='test.php' data-id='"+row.id+"'  class='btn btn-xs btn-delete' onclick='$a.menu.delete(this); return false;'><i class='fa fa-lg fa-trash'></i> Sil </a>";
       html += "</div>";
       if(row.children){
