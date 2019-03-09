@@ -13,6 +13,8 @@ $app->CreateView("register","user/register.tpl");
 $app->CreateView("blog","blog.tpl");
 $app->CreateView("menu","menu.tpl");
 $app->CreateView("createm","create-menu.tpl");
+$app->CreateView("login","login.tpl");
+$app->CreateView("error","../404.tpl");
 
 $app->data_connect();
 //seo fonksiyonu
@@ -109,6 +111,7 @@ if(isset($_GET["msayfa"])){
     }
 }
 else{
+  if(isset($_SESSION['kadi'])){
     $genel=$app->data_get("select * from genel where id=1");
     while($row=$app->data_fetch_array($genel))
     {
@@ -119,6 +122,13 @@ else{
     }
     $app->Views["index"]->parse("main");
     $app->Views['main']->assign("content",$app->Views["index"]->text("main"));
+  }
+  else{
+    $app->Views["login"]->parse("main");
+    $app->Views["login"]->out("main");
+    exit();
+  }
+
 }
 if(isset($_POST["sliderduzenle"])){
 

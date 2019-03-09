@@ -15,19 +15,59 @@ $app->CreateView("page","index.tpl");
 $app->CreateView("404","404.tpl");
 $app->StartPage();
 $app->data_connect();
+
 if(isset($_GET['sayfa'])){
   $sayfa=current(explode('/',$_GET['sayfa']));
   //  echo $sayfa;
   switch ($sayfa) {
     case 'hakkinda':
+    $menus=$app->data_get("select * from menuler");
+    while($menu=$app->data_fetch_array($menus))
+    {
+      $rows[] =[
+        'id'     => $menu["id"],
+        'parent' => $menu["parent"],
+        'title'  => $menu["title"],
+        'link'   =>$menu['link'],
+        'page'=>$menu['page']
+      ];
+    }
+    $result= menuGoster($rows,0);
+    $app->Views['main']->assign('menuolustur',$result);
     $app->Views['hakkinda']->parse('main');
     $app->Views['main']->assign('content',$app->Views['hakkinda']->text('main'));
     break;
     case 'hizmetler':
+    $menus=$app->data_get("select * from menuler");
+    while($menu=$app->data_fetch_array($menus))
+    {
+      $rows[] =[
+        'id'     => $menu["id"],
+        'parent' => $menu["parent"],
+        'title'  => $menu["title"],
+        'link'   =>$menu['link'],
+        'page'=>$menu['page']
+      ];
+    }
+    $result= menuGoster($rows,0);
+    $app->Views['main']->assign('menuolustur',$result);
     $app->Views['hizmetler']->parse('main');
     $app->Views['main']->assign('content',$app->Views['hizmetler']->text('main'));
     break;
     case 'calismalar':
+    $menus=$app->data_get("select * from menuler");
+    while($menu=$app->data_fetch_array($menus))
+    {
+      $rows[] =[
+        'id'     => $menu["id"],
+        'parent' => $menu["parent"],
+        'title'  => $menu["title"],
+        'link'   =>$menu['link'],
+        'page'=>$menu['page']
+      ];
+    }
+    $result= menuGoster($rows,0);
+    $app->Views['main']->assign('menuolustur',$result);
     $app->Views['calismalar']->parse('main');
     $app->Views['main']->assign('content',$app->Views['calismalar']->text('main'));
     break;
@@ -37,6 +77,19 @@ if(isset($_GET['sayfa'])){
     $app->Views['main']->assign('content',$app->Views['blog']->text('main'));
     break;
     case 'iletisim':
+    $menus=$app->data_get("select * from menuler");
+    while($menu=$app->data_fetch_array($menus))
+    {
+      $rows[] =[
+        'id'     => $menu["id"],
+        'parent' => $menu["parent"],
+        'title'  => $menu["title"],
+        'link'   =>$menu['link'],
+        'page'=>$menu['page']
+      ];
+    }
+    $result= menuGoster($rows,0);
+    $app->Views['main']->assign('menuolustur',$result);
     $app->Views['iletisim']->parse('main');
     $app->Views['main']->assign('content',$app->Views['iletisim']->text('main'));
     break;
@@ -44,9 +97,39 @@ if(isset($_GET['sayfa'])){
     $app->Views['detail']->parse('main');
     $app->Views['main']->assign('content',$app->Views['detail']->text('main'));
     break;
-    default:
+    case 'anasayfa':
+    $sliders=$app->data_get("select * from slider order by slider_sira asc");
+    $menus=$app->data_get("select * from menuler");
+    $genel=$app->data_get("select * from  genel");
+
+    while($row=$app->data_fetch_array($genel)){
+      $app->Views['page']->assign('slogan',$row['slogan']);
+      $app->Views['main']->assign('logo',$row['logo_image']);
+    }
+
+    while($menu=$app->data_fetch_array($menus))
+    {
+      $rows[] =[
+        'id'     => $menu["id"],
+        'parent' => $menu["parent"],
+        'title'  => $menu["title"],
+        'link'   =>$menu['link'],
+        'page'=>$menu['page']
+      ];
+    }
+    $result= menuGoster($rows,0);
+    // print_r($result);
+    // exit();
+    $app->Views['main']->assign('menuolustur',$result);
+    while($slider=$app->data_fetch_array($sliders))
+    {
+      $app->Views['page']->assign('img',$slider['slider_resim']);
+      $app->Views['page']->parse('main.slider');
+    }
     $app->Views['page']->parse('main');
     $app->Views['main']->assign('content',$app->Views['page']->text('main'));
+    break;
+    default:
     break;
   }
 }  else{
@@ -81,7 +164,6 @@ if(isset($_GET['sayfa'])){
   $app->Views['page']->parse('main');
   $app->Views['main']->assign('content',$app->Views['page']->text('main'));
 }
-
 
 $app->EndPage();
 $app->Views['main']->parse('main.content');

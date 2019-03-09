@@ -583,7 +583,7 @@ if(!function_exists("menuGoster")){
 			if ( $row['parent'] == $parent) {
 				if (has_children($rows, $row['id'])) {
 					$result.= '<li class="nav-item dropdown">';
-					$result.= '<a class="nav-link dropdown-toggle" href="'.$row['page'].'" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+					$result.= '<a class="nav-link dropdown-toggle" href="test.php?sayfa='.$row['page'].'" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 					$result.= $row["title"];
 					$result.= '</a>';
 					$result.= '<ul class="dropdown-menu">';
@@ -592,7 +592,7 @@ if(!function_exists("menuGoster")){
 					$result.= '</li>';
 				}else{
 					$result .= '<li class="nav-item">
-					<a class="nav-link"  href="'.$row['page'].'">'.$row['title'].'</a>
+					<a class="nav-link"  href="test.php?sayfa='.$row['page'].'">'.$row['title'].'</a>
 					</li>';
 				}
 			}
